@@ -18,3 +18,7 @@
 # Best practices for git commands
 1) run git commands every five minutes to ensure your work is saved!! 
 
+# First Website & Portfolio Page
+1) index.html will be the file that contains all work for 'First Website'
+2) portfolio.html will be the file that contains all work for 'Portfolio Page
+

@@ -20,5 +20,8 @@
 
 # First Website & Portfolio Page
 1) index.html will be the file that contains all work for 'First Website'
+    a) In the lesson todos, ignore TODO 1
+   b) In the lesson todos, ignore any instructions referencing cloud9
+   c) You can stop at TODO 10
 2) portfolio.html will be the file that contains all work for 'Portfolio Page
 

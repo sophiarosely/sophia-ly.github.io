@@ -13,15 +13,26 @@
  * 
  * TIPS:
  *  a. create something to collect the output you'll return.
+ * // --> output needs to be stored in an array 
  *  b. you'll need a loop, which one is best? How do you know 
  *     when to stop looping?
+ * --> 
  *  c. how do you access individual characters of a String?
  *  d. how do you concatenate Strings? What operator do we use?
  */
 
 function reverseString(input) {
     // YOUR CODE GOES BELOW HERE //
-    
+
+    //creating an array which will act as a container to store the output that returns
+    var newArray = [];
+    //creating a loop that will pick out each letter of the string in reverse and push it into the new array
+    for (var i = input.length - 1; i >= 0; i--) {
+      newArray.push(input[i]);
+    }
+    //turns the reverse letters in the array from separate strings into one full string
+    return newArray.join("");
+
     
     
     

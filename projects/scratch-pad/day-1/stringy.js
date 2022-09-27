@@ -87,9 +87,10 @@ return lowercase;
 function beginsWith(string, char) {
 
     // YOUR CODE BELOW HERE //
-    //creating a conditional chain that returns true if the first character of the string is the same as the first character of the character 
+    //creating a conditional chain that returns true if both parameters have the same first character & is case-insensitive 
         if (string[0].toLowerCase() == char[0].toLowerCase()) {
             return true;
+    //returns false if the parameters do not have the same first character
         } else {
             return false;
         }
@@ -110,8 +111,10 @@ function beginsWith(string, char) {
  */
 function endsWith(string, char) {
     // YOUR CODE BELOW HERE //
+    // creating a conditional chain that returns true if the parameters have the same last character & is case-insensitive
     if (string[string.length - 1].toLowerCase() == char[char.length - 1].toLowerCase()) {
         return true;
+        //returns false if the parameters do not have the same last character 
     } else {
         return false;
     }

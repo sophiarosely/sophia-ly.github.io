@@ -34,24 +34,47 @@
  */
 
 // YOUR CODE GOES BELOW HERE //
-function makeContact(id, nameFirst, nameLast) {
+function makeContact(id, nameFirst, nameLast) { //FACTORY FUNCTIONS
 
+    //factory function returns a contact object 
+    return {
+            id: id, 
+            nameFirst: nameFirst,
+            nameLast: nameLast,
+            };
 } 
 
 
-function makeContactList() {
+function makeContactList() { //FACTORY FUNCTION b/c the return statement at line 48 is returning an object 
     /*
      * You need something here to hold contacts. See length api for a hint:
      */
-    var contacts;
+
+    //this is our contacts array, where a list of our contacts will be stored 
+    var contacts = [];
+
+    //returning an object that contains methods that can interact with the contacts array 
     
     return {
         // we implemented the length api for you //
         length: function() {
             return contacts.length;
+        },
+            addContacts: function(contact) {
+                contacts.push(contact);
+            }, 
+            findContact: function(fullName) {
+                //iterate through contacts using a for-loop
+                for(var i = 0; i < contacts.length; i++) {
+                console.log(contacts[i]); 
+                }
+
+            },
+
+
         }
     }
-}
+
 
 
 

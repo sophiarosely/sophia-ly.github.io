@@ -12,7 +12,7 @@
  * TIP: In JavaScript, how can we decipher if a value is an Array? Can typeof
  * work?
  */
-function isArray(value) {
+function isArray(value) { // check to see if there is a method you can already use? (google it)
     // YOUR CODE BELOW HERE //
     
     
@@ -29,12 +29,20 @@ function isArray(value) {
  * null, not an Array, not a Date - all of these will return 'object' if used 
  * with typeof.
  */
-function isObject(value) {
+function isObject(value) { //this is more difficult to google 
     // YOUR CODE BELOW HERE //
     
-    
-    
-    
+   //determine if typeOf value is an object && value is not an array && value is not null 
+    // && value is not a date object
+
+    //creates a date object
+//but it's not a key-value pair object
+//it's a built-in object that contains data about the specific date 
+var today = new Date();
+console.log(today);
+
+console.log(typeof today); // how to determine if something is an instance of the date object 
+
     // YOUR CODE ABOVE HERE //
 }
 

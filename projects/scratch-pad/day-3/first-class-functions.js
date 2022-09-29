@@ -13,8 +13,13 @@
  */
 function createGreaterThanFilter(base) {
     // YOUR CODE BELOW HERE //
-    
-    
+
+    //return a function that tests whether value is greater than base 
+    return function(value){
+        //determine if value is greater than base 
+        return value > base; 
+
+    };
     
     
     // YOUR CODE ABOVE HERE //
@@ -27,7 +32,9 @@ function createGreaterThanFilter(base) {
  */
 function createLessThanFilter(base) {
     // YOUR CODE BELOW HERE //
-    
+    return function(value) {
+        return value < base;
+    }
     
     
     
@@ -38,15 +45,21 @@ function createLessThanFilter(base) {
  * Given a startsWith character, which will be a single character, return a 
  * Function that tests whether a given String starts with the startsWith 
  * character.
+ * Needs to be case-insensitive!
  */
 function createStartsWithFilter(startsWith) {
     // YOUR CODE BELOW HERE //
     
+    return function(string) { 
+         //returning "true" if the first letter of the string is the same as the first letter of the start sWith character
+     return string[0].toLowerCase() === startsWith.toLowerCase();
+    }
+
     
     
     
     // YOUR CODE ABOVE HERE //
-}
+    }
 
 /** 
  * Given a endsWith character, which will be a single character, return a 
@@ -55,7 +68,12 @@ function createStartsWithFilter(startsWith) {
  */
 function createEndsWithFilter(endsWith) {
     // YOUR CODE BELOW HERE //
-    
+
+    //returning a function that passes a string 
+    return function(string) {
+        //returning "true" if the last letter of the string is the same as the last letter of the endsWith character
+        return string[string.length - 1].toLowerCase() === endsWith.toLowerCase();
+    }
     
     
     
@@ -71,9 +89,19 @@ function createEndsWithFilter(endsWith) {
  */
 function modifyStrings(strings, modify) {
     // YOUR CODE BELOW HERE //
-    
-    
-    
+ 
+    //creating an array where the modified strings will be stored in the return statement
+    var modifiedStrings = [];
+  //creating a for-loop to iterate off the array of strings 
+  for (var i = 0; i < strings.length; i++) {
+    console.log(strings[i]);
+    modifiedStrings.push(modify(strings[i]));
+}
+return modifiedStrings;
+
+
+
+
     
     // YOUR CODE ABOVE HERE //
 }
@@ -87,9 +115,9 @@ function modifyStrings(strings, modify) {
  * 
  * TIP: You need to loop over the Strings, right? And pass them to the test?
  */
-function allStringsPass(strings, test) {
+function allStringsPass(strings, test) { // test is a function that will "test" a single string
     // YOUR CODE BELOW HERE //
-    
+    //similar to filterNums example from today 
     
     
     

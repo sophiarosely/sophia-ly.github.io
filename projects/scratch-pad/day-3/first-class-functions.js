@@ -117,6 +117,16 @@ return modifiedStrings;
  */
 function allStringsPass(strings, test) { // test is a function that will "test" a single string
     // YOUR CODE BELOW HERE //
+
+// array = ["Sophia", "Rose", "Ly"]
+       //creating a for-loop that iterates each value from the array 
+       for (var i = 0; i < strings.length; i++) {
+        if (test(strings[i]) === true) {
+            return true; 
+        }
+        }
+    //console.log(allStringsPass(strings, function()))
+    
     //similar to filterNums example from today 
     
     

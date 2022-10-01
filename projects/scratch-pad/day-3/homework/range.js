@@ -24,6 +24,20 @@
 function range(start, end) {
     // YOUR CODE GOES BELOW HERE //
     
+    //creating an array that contains all integers between parameters: start & end
+    var allIntegers = [];
+
+    if (start < end) {
+    for (var i = start; i <= end; i++) {
+        allIntegers.push(i);
+    } 
+} else if (start > end) {
+    for (var i = start; i >= end; i--) {
+        allIntegers.push(i);
+    }
+}
+    return allIntegers;
+
     
     
     

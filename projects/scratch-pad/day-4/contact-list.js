@@ -52,6 +52,7 @@ function makeContactList() { //FACTORY FUNCTION b/c the return statement at line
 
     //this is our contacts array, where a list of our contacts will be stored 
     var contacts = [];
+    
 
     //returning an object that contains methods that can interact with the contacts array 
     
@@ -60,21 +61,23 @@ function makeContactList() { //FACTORY FUNCTION b/c the return statement at line
         length: function() {
             return contacts.length;
         },
-            addContacts: function(contact) {
+            addContact: function(contact) {
                 contacts.push(contact);
             }, 
             findContact: function(fullName) {
-                //iterate through contacts using a for-loop
-                for(var i = 0; i < contacts.length; i++) {
-                console.log(contacts[i]); 
+                if(fullName === contacts.filter(["nameFirst" + ["nameLast"]) {
+                    return 
                 }
-
+                else {
+                    return undefined;
+                }
+            },
+            removeContact: function(contact) {
+                return contacts.filter(contact);
             },
 
-
-        }
     }
-
+}
 
 
 

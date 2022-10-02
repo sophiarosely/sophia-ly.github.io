@@ -94,14 +94,19 @@ function isCollection(value) {
  */ 
 
 
+//creating a function that returns what the type of value the parameter is as a string
 function typeOf(value) {
     // YOUR CODE BELOW HERE //
+    //if the value is an object & an array, return a string of array 
     if(typeof (value) === "object" && Array.isArray(value)) {
         return "array";
+           //if the value is an object & equal to null, return a string of null
     } else if (typeof (value) === "object" && value === null) {
         return "null"; 
+        //if the value is an object & a built-in date object, return a string of date
 } else if (typeof (value) === "object" && value instanceof Date) {
            return "date"; 
+           //if it does NO Tfit the conditions above, return the typeof operator to reveal the type of value the parameter is
 } else {
     return (typeof (value)); 
 }

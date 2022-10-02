@@ -118,15 +118,21 @@ return modifiedStrings;
 function allStringsPass(strings, test) { // test is a function that will "test" a single string
     // YOUR CODE BELOW HERE //
 
-// array = ["Sophia", "Rose", "Ly"]
+    var results = [];
+
        //creating a for-loop that iterates each value from the array 
        for (var i = 0; i < strings.length; i++) {
-        if (test(strings[i]) === true) {
-            return true; 
+
+        //this is basically saying any string is true, it will return true. that's what the loop is doing, but the prompt is asking
+        // true if ALL OF THEM ARE
+        // => if (test(strings[i]) == true) --> this is not what we want 
+
+        //now, this is giving us a result of every true or false it came up with,
+        //but how do we let JS know to only print true if everything was true?
+        //if (test(strings[i])) {
         }
-        }
+
     //console.log(allStringsPass(strings, function()))
-    
     //similar to filterNums example from today 
     
     

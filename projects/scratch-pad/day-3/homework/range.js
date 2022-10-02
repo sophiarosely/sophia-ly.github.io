@@ -27,15 +27,20 @@ function range(start, end) {
     //creating an array that contains all integers between parameters: start & end
     var allIntegers = [];
 
+    //creating an if-else if-else chain that takes the two parameters, start and end, and pushes them into an array containing the range of number
+    //between the two values 
     if (start < end) {
     for (var i = start; i <= end; i++) {
         allIntegers.push(i);
     } 
+    //creating an if-else if-else chain that takes the two parameters, start and end, and pushes them into an array containing the range of number
+    //between the two values, in reverse
 } else if (start > end) {
     for (var i = start; i >= end; i--) {
         allIntegers.push(i);
     }
 }
+    //returning the array 
     return allIntegers;
 
     

@@ -67,8 +67,10 @@ function makeContactList() { //FACTORY FUNCTION b/c the return statement at line
             findContact: function(fullName) { // Sophia Ly
                 //Sophia Ly == 
                 /*for (var i = 0; i < contactList.length; i++) 
-                if (contactList[i].includes(fullName) === fullName) {
-                    return contactList[i];
+                //finding fullName in contacts array
+                if (contactList[i].includes(fullName) === true) {
+                    //not sure how to return the contact object (contactList) at that specific instance
+                    return contactList["fullName"];
                 }
                 else {
                     return undefined;
@@ -78,7 +80,7 @@ function makeContactList() { //FACTORY FUNCTION b/c the return statement at line
             removeContact: function(contact) {
                 return contactList.pop(contact);
             },
-
+         
     }
 }
 

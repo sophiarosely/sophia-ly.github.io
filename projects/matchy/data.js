@@ -105,6 +105,7 @@ var friends = [];
 function getRandom(array) {
 return array[Math.floor(Math.random() * animals.length - 1)];
 };
+//pushing a random animal and add i
 friends.push(getRandom(animals).name);
 //logging to the console
 console.log(friends);

@@ -69,7 +69,7 @@ As we code, save and refresh the browser tab running Matchy. Your work will begi
  1. [x] Using **bracket syntax**, assign the `noises` property on `animal` to our new `noises` array.
  2. [x] Using any syntax add another noise to the `noises` property on `animal`.
  3. [x] `console.log` `animal`.
- 4. [ ] Does it look right?
+ 4. [x] Does it look right?
 
 
 ## Step 4 - Review
@@ -118,8 +118,8 @@ These Functions will pass in all needed parameters, meaning, we will not reach i
 ## Step 1 - Search
  1. Open up the file `functions.js` in your editor.
  2. Implement a function declaration called `search` that:
-   - Takes a paramater representing an Array of `animals`.
-   - Takes a paramater representing a String, the name of an animal on which to perform a search.
+   [x] Takes a paramater representing an Array of `animals`.
+   [x]Takes a paramater representing a String, the name of an animal on which to perform a search.
    - Looks through the `animals` Array, and returns the animal's Object if an animal with that name exists.
    - Returns `null` if no animal with that name exists
  3. Use the search bar at the top of the page to make sure your function works.

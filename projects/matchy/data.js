@@ -93,11 +93,24 @@ var elephant = {species: "Elephant", name: "Edward", noises: ["splashing", "trum
 //add each to animals
 animals.push(tiger);
 animals.push(elephant);
+//log animals and length of animals
+console.log(animals);
 //////////////////////////////////////////////////////////////////////
 // Step 7 - Making Friends ///////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 
-
+//using an array to sort list of friend's array, due to indexes 
+var friends = [];
+//creating a function called getRandom that takes an array and returns a random index of the array
+function getRandom(array) {
+return array[Math.floor(Math.random() * animals.length - 1)];
+};
+friends.push(getRandom(animals).name);
+//logging to the console
+console.log(friends);
+//using bracket notation, add the friends list as a property also named friends on one of the animals in the 
+//array
+animals[0].friends = friends;
 
 /**
  * Nice work! You're done Part 1. Pat yourself on the back and

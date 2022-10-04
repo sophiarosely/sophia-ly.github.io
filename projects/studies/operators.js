@@ -93,5 +93,5 @@
  */
     var age = 16; 
     var beverage = age >= 21 ? "wine" : "soda";
-    console.log(beverage);
+    console.log(beverage); // prints => "wine"
  

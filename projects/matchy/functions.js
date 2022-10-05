@@ -55,10 +55,6 @@ the replacement object*/
 //////////////////////////////////////////////////////////////////////
 // Step 3 - Remove ///////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
-/*  Write a function declaration called `remove` with a signature of `remove(animals, name)` that:
-   - Takes 2 parameters, an Array of animals, and a name of an animal on which to perform a search.
-   - If an animal with that name exists within the `animals` Array, remove it.
- 2. Test that it works on the website.*/
 
 /*creating a function called remove with parameters of (animals, name) that removes the animal from the array if
 their name is found in the search */

@@ -103,7 +103,7 @@ console.log(animals);
 var friends = [];
 //creating a function called getRandom that takes an array and returns a random index of the array
 function getRandom(array) {
-return array[Math.floor(Math.random() * animals.length - 1)];
+return array[Math.floor(Math.random() * (animals.length - 1))];
 };
 
 //getting a random animal's name  => visually would be: friends.push(animal object in the array).name 

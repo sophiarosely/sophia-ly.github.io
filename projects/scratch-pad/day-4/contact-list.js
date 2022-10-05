@@ -64,18 +64,18 @@ function makeContactList() { //FACTORY FUNCTION b/c the return statement at line
             addContact: function(contact) {
                 contactList.push(contact);
             }, 
-            findContact: function(fullName) { // Sophia Ly
-                //Sophia Ly == 
-                /*for (var i = 0; i < contactList.length; i++) 
-                //finding fullName in contacts array
-                if (contactList[i].includes(fullName) === true) {
-                    //not sure how to return the contact object (contactList) at that specific instance
-                    return contactList["fullName"];
+            findContact: function(string) { // takes a full-Name string
+                //looking through array's, called contactList, values, which contains the contact objects, to see 
+                // if any objects have the full-Name string 
+                for (var i = 0; i < contactList.length; i++) {
+                   if (contactList[i].nameFirst && contactList[i].nameLast) {
+                    //returning contact object if found
+                    return contactList[i];
+                   } else {
+                    //returning contact object if not found
+                    return "undefined";
+                   }
                 }
-                else {
-                    return undefined;
-                }
-                */
             },
             removeContact: function(contact) {
                 return contactList.pop(contact);

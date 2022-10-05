@@ -8,12 +8,12 @@
 ## Step 2 - Be The Test Master
 `test-master.js` contains a bunch of **unit tests**. **Unit tests** help us verify that our code is doing the right thing by calling our functions with some test data and making sure that our functions do the right thing. These tests are incomplete and it is our job today to complete them.
 
- - Inspect the tests on the page and try to understand what's going on in general.
- - All the **tests** are currently **failing**.
- - If we look in test-master.html we can see that they are **red** and their status is **failed**
- - Each one of the tests has at least one occurrence of "???". This is what we need to change.
- - Change each "???" to the value that will make the test **pass**
- - Once they pass they will be **blue** and not red on the page!
+ [x] Inspect the tests on the page and try to understand what's going on in general.
+ [x] All the **tests** are currently **failing**.
+ [x]If we look in test-master.html we can see that they are **red** and their status is **failed**
+ [x]Each one of the tests has at least one occurrence of "???". This is what we need to change.
+ [x]Change each "???" to the value that will make the test **pass**
+ [x] Once they pass they will be **blue** and not red on the page!
 
 # Part 2 - Function Master
 

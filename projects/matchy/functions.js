@@ -76,7 +76,6 @@ function remove (animals, name) {
 // Step 4 - Add ///////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 /** Write a function declaration called `add` with a signature of `add(animals, animal) { //... }` that:
-   - Takes 2 parameter, an Array of animals, and an Object representing a new animal to be added.
    - Checks that the animal Object has a `name` property with a length > 0.
    - Checks that the animal Object has a `species` property with a length > 0.
    - Has a **unique** name, meaning no other animals have that name.
@@ -84,8 +83,18 @@ function remove (animals, name) {
    - Make sure it works. */
 /*creating a function called add with parameters of animals, animal
 */
-
-
+function add(animals, animal) {
+    for (var i = 0; i < animals.length; i++) {
+        //if animal object has a name & species property with a length > 0 and a unique name
+        // that is not found in the animals array, push it to the array, if not, do not push it
+    if (animal.name.length > 0 && animal.species.length > 0 && animal.name !== animals[i].name ) {
+        //add new object to the animals array 
+        animals.push(animal);
+    } 
+        //returning animals
+        return animals;
+    }
+}
 /**
  * You did it! You're all done with Matchy!
  */

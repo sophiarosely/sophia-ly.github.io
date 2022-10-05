@@ -68,13 +68,15 @@ function makeContactList() { //FACTORY FUNCTION b/c the return statement at line
                 //looking through array's, called contactList, values, which contains the contact objects, to see 
                 // if any objects have the full-Name string 
                 for (var i = 0; i < contactList.length; i++) {
-                   if (contactList[i].nameFirst && contactList[i].nameLast) {
+                    //if the first name and the lastname in each object matches the strings, it 
+                    //wiil return: 
+                   if (contactList[i].nameFirst + " " + contactList[i].nameLast === string) {
                     //returning contact object if found
                     return contactList[i];
-                   } else {
-                    //returning contact object if not found
-                    return "undefined";
                    }
+                    //returning contact object if not found
+                    return undefined;
+        
                 }
             },
             removeContact: function(contact) {

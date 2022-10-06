@@ -11,24 +11,31 @@ return (Object.values(object));
 //////////////////////////////////////////////////////////////////////
 // Function 2 - Keys to String ///////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
-
+  // //should take an object and return all its keys in a string each separated by a space 
 function keysToString(object) {
-var array; 
-//puts values into an array
-array = (Object.keys(object));
-//splits the array into a string
-array.split(" ");
-array.join(" ");
-return array;
+    //this takes all the keys from this object and puts it into an array
+  var array = Object.keys(object);
+  // ==> [key, key]
+  //now, we have to turn the array into strings 
+  var newStrings = array.join(" ");
+//returning newString
+    return newStrings;
+
 }
 
 //////////////////////////////////////////////////////////////////////
 // Function 3 - Values to String /////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 
+ //taking an object and returning its string values in a string separated by a space
 function valuesToString(object) {
-    Object.values(object)
-    var array = [];
+    //getting all of the object's values
+  var array = Object.values(object); 
+  // ==> now values are in an array through variable array
+  //joining the strings from the array, separated by a space
+  var strings = array.join(" ");
+  //returning the strings
+  return strings; 
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -117,7 +124,14 @@ function hasWord(string, word) {
 //////////////////////////////////////////////////////////////////////
 
 function addFriend (name, object) {
-
+        //adding the name to an object friend's array 
+        // visually ==> object = {friends: []}; 
+        //accessing the object's name property to retrieve the friend's array
+        var friendsArray = object.friends; 
+        //pushing the name into the friend's array
+        var newName = friendsArray.push(name);
+        //returning the object with the updated friend's array 
+        return object;
 }
 
 //////////////////////////////////////////////////////////////////////

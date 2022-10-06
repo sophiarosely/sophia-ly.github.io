@@ -2,7 +2,9 @@
 // Function 1 - Object Values ////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 
-const { words } = require("lodash");
+//const { split } = require("lodash");
+
+//const { words } = require("lodash");
 
 function objectValues(object) {
 return (Object.values(object));
@@ -31,9 +33,15 @@ function keysToString(object) {
 function valuesToString(object) {
     //getting all of the object's values
   var array = Object.values(object); 
-  // ==> now values are in an array through variable array
+  // ==> now values are in an array through variable array e.g. [key, key, key];
+  for (var i = 0; i < array.length; i++) {
+    //if-else chain to make sure the keys are a string
+    if (array[i] === "string") {
+      return array[i];
+    }
+  }
   //joining the strings from the array, separated by a space
-  var strings = array.join(" ");
+  var strings = array[i].join(" ");
   //returning the strings
   return strings; 
 }
@@ -116,7 +124,19 @@ if (object.hasOwnProperty("noises") && Array.isAnArray(object.noises) {
 //////////////////////////////////////////////////////////////////////
 
 function hasWord(string, word) {
+   //takes a string of words => "Sophia is awesome!"
+//creating an array, so we can loop through the words 
+//visually => ["Sophia", "is", "awesome!"]
+var splitArray = string.split();
+//if word is found in the string, then return true 
+for(var i = 0; i < splitArray.length; i++) {
+if (splitArray[i].includes(word) === true) {
+  return true; 
+} else {
+  return false; 
+}
 
+}
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -138,9 +158,17 @@ function addFriend (name, object) {
 // Function 12 - Is Friend ///////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 
+/*creating a function called isFriend with two parameters: name(property) and friend (object) */
 function isFriend(name, object) {
-
-}
+         //takes a name and returns true if the name is found in object
+        //visually: => {friends: ["Sophia"]};
+        //using a for-loop to "look" or loop through the object 
+          if (object.friends.includes(name) === true) {
+            return "true"; 
+          } else {
+            return "false";
+          }
+        }
 
 //////////////////////////////////////////////////////////////////////
 // Function 13 - Non-Friends /////////////////////////////////////////

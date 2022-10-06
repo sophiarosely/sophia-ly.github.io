@@ -84,7 +84,8 @@ function makeContactList() { //FACTORY FUNCTION b/c the return statement at line
             },
             printAllContactNames: function() {
                 for (var i = 0; i < contactList.length; i++){
-                 return (console.log(contactList[i].nameFirst + " " + contactList[i].nameLast + "/n"));  
+                  console.log(contactList[i].nameFirst + " " + contactList[i].nameLast + "\n");  
+                  return contactList[i];
                 }
               }
     }

@@ -108,11 +108,11 @@ function maybeNoises(object) {
     //if the object has a noises array, return them separated as a string with a space
     if (object.hasOwnProperty("noises") && object.noises.length > 0) {
       return object.noises.join(" ");
-      //if it has no property "noises" = no noises 
+      //if it has no property "noises" = "there are no noises"
   } else if (object.hasOwnProperty("noises") ===  false) {
       return "there are no noises";
   }
-  //if it's an empty array = no noises
+  //if it's an empty array = "there are no noises"
     else if (object.noises.length === 0) {
     return "there are no noises";
     }
@@ -161,30 +161,22 @@ function addFriend (name, object) {
 // Function 12 - Is Friend ///////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 //Should take a name and an object and return true if <name> is a friend of <object> and false otherwise
-//test cases: does the object even have a friends property? => return false
-//test case: does the object have an empty list(array => no friends)  => return false 
-//test case: object has friends list, but does it have that specific name? 
 
-I 
+//test cases: does the object even have a friends property? => return false
+
 /*creating a function called isFriend with two parameters: name(property) and friend (object) */
-/*
+
 function isFriend(name, object) {
-  //creating a loop and iterating through friends list (friends property at object => object.friends = [];)
-  for (var i = 0; i < object.friends.length; i++) {
-    //if object even has friends list and includes the name, return true
-    if (object.hasOwnProperty("friends") && object.friends.includes(name)) {
-      return true; 
-      //if friends list exists and it's empty, return false 
-    } else if (object.friends.length === 0) {
-    return false; 
-    //if friends list doesn't even exist, return false
-  } else if (object.hasOwnProperty("friends") === false) {
+  //if object has the property friends and includes the name => return true
+  //must have name b/c test case => what if the friends list does not exist?
+  if (object.hasOwnProperty("friends") && object.friends.includes(name)) {
+    return true; 
+    //if the friends list doesn't have the name that is inputted, then it will return false 
+  } else {
     return false; 
   }
-      
-}
-}
-*/
+  }
+  
 
 //////////////////////////////////////////////////////////////////////
 // Function 13 - Non-Friends /////////////////////////////////////////
@@ -192,24 +184,13 @@ function isFriend(name, object) {
 /*nonFriends() : Should take a name and a list of people, and return a list of 
 all the names that <name> is not friends with
 */
-
+// name = object?
+// list of people => an array 
 function nonFriends(name, array) {
- /*
-  /* Should take a name and a list of people, and return a list of all the names that <name> is not friends with 
-
-  //name => "Sophia Ly" ----> array = ["Sean", "Ryan", "By"]
-  // result => an array with all of the names that name parameter is not friends with 
-
-  //so, this loop is taking a random list of people and iterating through it and
-  // see if there any of my friends in there 
-  for (var i = 0; i < array.length; i++) {
-    if (!array.includes(values from my names array)) {
-      return array
-    }
+  if (object.hasOwnProperty("friends") && !object.friends.includes(array)) {
+    return 
   }
 
-  //return an array of all the names that name is not friends with 
-*/
 }
 
 
@@ -217,9 +198,10 @@ function nonFriends(name, array) {
 // Function 14 - Update Object ///////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 
-/* Should take an object, a key and a value. 
-Should update the property <key> on <object> with new <value>. 
-If <key> does not exist on <object> create it. (3, 0, 3)Rerun */
+// taking  a key and a value. 
+//updating the property <key> on <object> with new <value>. 
+//if <key> does not exist on <object>, we are creating it. 
+
 function updateObject(object, key, value) {
   object[key] = value;
   return object;

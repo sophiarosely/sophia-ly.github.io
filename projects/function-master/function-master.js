@@ -31,17 +31,12 @@ function keysToString(object) {
 
  //taking an object and returning its string values in a string separated by a space
 function valuesToString(object) {
-    //getting all of the object's values
+    //getting all of the object's values and turning it into an array. 
   var array = Object.values(object); 
-  // ==> now values are in an array through variable array e.g. [key, key, key];
-  for (var i = 0; i < array.length; i++) {
-    //if-else chain to make sure the keys are a string
-    if (array[i] === "string") {
-      return array[i];
-    }
-  }
+  // ==> now, we're going to filter the strings only and it's going to result in an array with the strings only
+  var array2 = array.filter(item => typeof item === 'string');
   //joining the strings from the array, separated by a space
-  var strings = array[i].join(" ");
+  var strings = array2.join(" ");
   //returning the strings
   return strings; 
 }
@@ -109,15 +104,21 @@ return message;
 // Function 9 - Maybe Noises /////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 
-/*function maybeNoises(object) {
+function maybeNoises(object) {
     //if the object has a noises array, return them separated as a string with a space
-if (object.hasOwnProperty("noises") && Array.isAnArray(object.noises) {
-    return object.noises.toString(" ");
-} else  {
+    if (object.hasOwnProperty("noises") && object.noises.length > 0) {
+      return object.noises.join(" ");
+      //if it has no property "noises" = no noises 
+  } else if (object.hasOwnProperty("noises") ===  false) {
+      return "there are no noises";
+  }
+  //if it's an empty array = no noises
+    else if (object.noises.length === 0) {
     return "there are no noises";
-}
-}
-*/
+    }
+  }
+
+
 
 //////////////////////////////////////////////////////////////////////
 // Function 10 - Has Words ///////////////////////////////////////////
@@ -128,10 +129,12 @@ function hasWord(string, word) {
 //creating an array, so we can loop through the words 
 //visually => ["Sophia", "is", "awesome!"]
 var splitArray = string.split();
-//if word is found in the string, then return true 
+//creating a for-loop to look through array of strings
 for(var i = 0; i < splitArray.length; i++) {
+  ////if word is found in the array, then return true 
 if (splitArray[i].includes(word) === true) {
   return true; 
+  //if word is not found in the array, then false
 } else {
   return false; 
 }
@@ -157,43 +160,90 @@ function addFriend (name, object) {
 //////////////////////////////////////////////////////////////////////
 // Function 12 - Is Friend ///////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
+//Should take a name and an object and return true if <name> is a friend of <object> and false otherwise
+//test cases: does the object even have a friends property? => return false
+//test case: does the object have an empty list(array => no friends)  => return false 
+//test case: object has friends list, but does it have that specific name? 
 
+I 
 /*creating a function called isFriend with two parameters: name(property) and friend (object) */
+/*
 function isFriend(name, object) {
-         //takes a name and returns true if the name is found in object
-        //visually: => {friends: ["Sophia"]};
-        //using a for-loop to "look" or loop through the object 
-          if (object.friends.includes(name) === true) {
-            return "true"; 
-          } else {
-            return "false";
-          }
-        }
+  //creating a loop and iterating through friends list (friends property at object => object.friends = [];)
+  for (var i = 0; i < object.friends.length; i++) {
+    //if object even has friends list and includes the name, return true
+    if (object.hasOwnProperty("friends") && object.friends.includes(name)) {
+      return true; 
+      //if friends list exists and it's empty, return false 
+    } else if (object.friends.length === 0) {
+    return false; 
+    //if friends list doesn't even exist, return false
+  } else if (object.hasOwnProperty("friends") === false) {
+    return false; 
+  }
+      
+}
+}
+*/
 
 //////////////////////////////////////////////////////////////////////
 // Function 13 - Non-Friends /////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
+/*nonFriends() : Should take a name and a list of people, and return a list of 
+all the names that <name> is not friends with
+*/
 
 function nonFriends(name, array) {
+ /*
+  /* Should take a name and a list of people, and return a list of all the names that <name> is not friends with 
 
+  //name => "Sophia Ly" ----> array = ["Sean", "Ryan", "By"]
+  // result => an array with all of the names that name parameter is not friends with 
+
+  //so, this loop is taking a random list of people and iterating through it and
+  // see if there any of my friends in there 
+  for (var i = 0; i < array.length; i++) {
+    if (!array.includes(values from my names array)) {
+      return array
+    }
+  }
+
+  //return an array of all the names that name is not friends with 
+*/
 }
+
 
 //////////////////////////////////////////////////////////////////////
 // Function 14 - Update Object ///////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 
+/* Should take an object, a key and a value. 
+Should update the property <key> on <object> with new <value>. 
+If <key> does not exist on <object> create it. (3, 0, 3)Rerun */
 function updateObject(object, key, value) {
+  object[key] = value;
+  return object;
+ }
 
-}
 
 //////////////////////////////////////////////////////////////////////
 // Function 15 - Remove Properties ///////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 
+/*Should take an object and an array of strings. Should remove any 
+properties on <object> that are listed in <array>
+*/
+
 function removeProperties(object, array) {
-
-}
-
+  for (let i = 0; i < Object.keys(object).length; i++) {
+    for (let j = 0; j < array.length; j++) {
+      if (array[j] === Object.keys(object)[i]) {
+        var holdVariable = (array[j]);
+        delete object[holdVariable];
+      }
+    }
+    }
+  }
 //////////////////////////////////////////////////////////////////////
 // Function 16 - Dedup ///////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////

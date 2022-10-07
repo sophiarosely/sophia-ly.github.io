@@ -83,11 +83,24 @@ function makeContactList() { //FACTORY FUNCTION b/c the return statement at line
                 return contactList.pop(contact);
             },
             printAllContactNames: function() {
+                var newString = "";
                 for (var i = 0; i < contactList.length; i++){
-            var newString = contactList[i].nameFirst + " " + contactList[i].nameLast + "\n";
+            var newString =  newString + contactList[i].nameFirst + " " + contactList[i].nameLast + "\n";
                 }
-                return newString;
-              }
+                //remove last line break from end of string using replace method 
+              var newString2 = newString.replace(/\n$/, "");
+              return newString2;
+            }
+        
+
+              //?? current positon = contactList[i] ??
+              // object = contactList = [{nameFirst: "Sophia", nameLast: "Ly"}, {nameFirst: "Sean", nameLast: "Ly"},{nameFirst: "Brandon", nameLast: "Ly"} ];
+              // 0
+              // "Sophia Ly/n"
+              // 1
+              // "Sean Ly/n"
+              
+
     }
 
     /* add a printAllContactNames() Function to your makeContactList() factory. The printAllContactNames() Function should 

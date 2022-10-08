@@ -184,12 +184,8 @@ function isFriend(name, object) {
 /*nonFriends() : Should take a name and a list of people, and return a list of 
 all the names that <name> is not friends with
 */
-// name = object?
-// list of people => an array 
+
 function nonFriends(name, array) {
-  if (object.hasOwnProperty("friends") && !object.friends.includes(array)) {
-    return 
-  }
 
 }
 

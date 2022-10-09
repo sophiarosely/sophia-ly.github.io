@@ -131,7 +131,7 @@ Pharrell
 //looping through an array backwards
 //Our code loops through every index in the array, starting from the last index in the array to the zeroth index, and prints each array value. 
 
-let faveArtists = ["Kid Cudi", "Kanye West", "Mac Miller", "Pharrell"];
+var faveArtists = ["Kid Cudi", "Kanye West", "Mac Miller", "Pharrell"];
 
 for (var i = faveArtists.length - 1; i >= 0; i--) {
   console.log(faveArtists[i]);

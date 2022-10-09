@@ -94,7 +94,7 @@ return num1 + num2;
 you have to log the variable. */
 
 var newValue = add(5, 2); 
-console.log(newValue); => prints 7 
+console.log(newValue); // => prints 7 
 
 
 // 5. optional function inputs & optional return statements // 

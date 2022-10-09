@@ -113,7 +113,7 @@ while (count >= 0) {
 // 3. looping through an array forwards and backwards // 
 /* Our code loops through every index in the array, starting from the zeroth index to the last value
  in the array, and prints each array value. */
-let faveArtists = ["Kid Cudi", "Kanye West", "Mac Miller", "Pharrell"];
+var faveArtists = ["Kid Cudi", "Kanye West", "Mac Miller", "Pharrell"];
 
 //looping through an array forwards
 for (var i = 0; i < faveArtists.length; i++) {

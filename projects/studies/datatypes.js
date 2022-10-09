@@ -151,7 +151,6 @@ let y = x * 1.001;
 console.log(y);  // => prints -Infinity 
 
 //11. primitive data types vs. complex data types 
-
 //primitive data type 
 //cannot add another data than itself to a primitive data type, you can only re-assign a primitive data type, but you cannot access it in order to add to itself, like an array or object
 
@@ -177,7 +176,6 @@ console.log(mySelf);  /* => prints  {
 
 
 // 12. copy by value vs. copy by reference // 
-
 //copy by value 
 //Showing that the variable incorrectName now prints the correct name because it was copied by the original value 
 let correctName = "Sophia"; 

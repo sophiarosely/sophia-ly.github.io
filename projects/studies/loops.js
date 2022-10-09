@@ -58,11 +58,12 @@ let sanrioCharacters = ["My Melody", "Kuromi", "Hello Kitty", "Cinnamonroll", "T
 for (var i = 0; i < sanrioCharacters.length; i++) {
   console.log("My favorite characters are: " + sanrioCharacters[i] + ".");
 }
-// => prints My favorite characters are: My Melody.
+/* => prints My favorite characters are: My Melody.
 My favorite characters are: Kuromi.
 My favorite characters are: Hello Kitty.
 My favorite characters are: Cinnamonroll.
 My favorite characters are: Twin Stars
+*/
 
 
 //for-in loop 
@@ -110,17 +111,19 @@ while (count >= 0) {
 // prints => 12, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1, 0 
 
 // 3. looping through an array forwards and backwards // 
-//Our code loops through every index in the array, starting from the zeroth index to the last value in the array, and prints each array value. 
+/* Our code loops through every index in the array, starting from the zeroth index to the last value
+ in the array, and prints each array value. */
 let faveArtists = ["Kid Cudi", "Kanye West", "Mac Miller", "Pharrell"];
 
 //looping through an array forwards
 for (var i = 0; i < faveArtists.length; i++) {
   console.log(faveArtists[i]);
 }
-// prints => Kid Cudi 
+/* prints => Kid Cudi 
 Kanye West
 Mac Miller
 Pharrell
+*/
 
 
 
@@ -128,7 +131,7 @@ Pharrell
 //looping through an array backwards
 //Our code loops through every index in the array, starting from the last index in the array to the zeroth index, and prints each array value. 
 
-let faveArtists = ["Kid Cudi", "Kanye West", "Mac Miller", "Pharrell"]
+let faveArtists = ["Kid Cudi", "Kanye West", "Mac Miller", "Pharrell"];
 
 for (var i = faveArtists.length - 1; i >= 0; i--) {
   console.log(faveArtists[i]);

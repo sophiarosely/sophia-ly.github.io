@@ -192,17 +192,19 @@ var data = [
   {name: "Sara", friends: ["Jimmy"]}
 ];
 */
-
+/*
 function nonFriends(name, array) {
+  var notFriends = [];
   for (var i = 0; i < array.length; i++) {
-    if (array.name === name) {
-      return 
-    }
-  }
+   if (array[i].indexOf(name) === -1) {
+    return 
+   }
+    notFriends.push(); 
+    return notFriends;
 
 }
 
-
+*/
 //////////////////////////////////////////////////////////////////////
 // Function 14 - Update Object ///////////////////////////////////////
 //////////////////////////////////////////////////////////////////////

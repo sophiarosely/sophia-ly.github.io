@@ -2,8 +2,18 @@
 // min /////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-function min() {
-
+//takes two parameters and returns its smallest argument
+function min(num1, num2) {
+  //if second argument is smaller, return second argument or if arguments are negative, returns the more negative number 
+if (num1 > num2) {
+  return num2;
+ // if arguments are the same, returns a zero 
+} else if (num2 === num1) {
+  return 0;
+  //if first argument is smaller, return the first argument
+} else if (num2 > num1) {
+  return num1;
+}
 }
 
 ////////////////////////////////////////////////////////////////////////////////

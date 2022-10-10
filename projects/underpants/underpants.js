@@ -3,7 +3,19 @@
 // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Strict_mode
 'use strict';
 
+// declaring a variable _ and assigning it an empty object
 var _ = {};
+//add properties to this object and it will be functions 
+// this object is getting added many functions 
+// visually : ==> 
+/**
+ * _ = {
+ * identity: function(),
+ *  typeOf: function(),
+ * }
+ * 
+ */
+
 
 
 /**
@@ -11,7 +23,7 @@ var _ = {};
 * Implement each function below its instructions
 */
 
-/** _.identity
+/** _.identity // => add a property object named _ 
 * Arguments:
 *   1) Any value
 * Objectives:
@@ -20,7 +32,10 @@ var _ = {};
 *   _.identity(5) === 5
 *   _.identity({a: "b"}) === {a: "b"}
 */
-
+_.identity = function(value) {
+    //return parameter value unchanged 
+    return value;
+};
 
 /** _.typeOf
 * Arguments:
@@ -42,7 +57,10 @@ var _ = {};
 * _.typeOf([1,2,3]) -> "array"
 */
 
-
+//adding property typeOf to _
+_.typeOf = function (value) {
+    return typeof value;
+}
 /** _.first
 * Arguments:
 *   1) An array
@@ -130,6 +148,27 @@ var _ = {};
 *      -> should log "a" "b" "c" to the console
 */
 
+//parameters/arguments = collection, function
+//adding to object "_" and assigning the property "each" a function 
+_.each = function(collection, func)  {
+//determine if collection is an array, else its an object (assume its if-else)
+if (Array.isArray(collection)) {
+    //call input function to each element in the array
+    //gives access to current item in array 
+    for (var i = 0; i < collection.length; i++) {
+        //calling function to have access to the current element, index, and array
+        //func(//current element//index//collection aka array)
+        // invokes input func on current element, index, and array 
+        func(collection[i], i, collection);
+    }
+} else { //else its an object 
+    //iterate through collection using for in loop
+    for (let key in collection) {
+        //invoke input func, passing in current key, value, and object 
+        func(collection[key], key, collection);
+    }
+}
+}
 
 /** _.unique
 * Arguments:

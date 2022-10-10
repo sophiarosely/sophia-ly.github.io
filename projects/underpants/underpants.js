@@ -8,6 +8,7 @@ var _ = {};
 //add properties to this object and it will be functions 
 // this object is getting added many functions 
 // visually : ==> 
+
 /**
  * _ = {
  * identity: function(),
@@ -59,8 +60,16 @@ _.identity = function(value) {
 
 //adding property typeOf to _
 _.typeOf = function (value) {
-    return typeof value;
-}
+    //returning a string "array", if the input value is an array
+    if (Array.isArray(value)) {
+      return "array";
+      //returning a string "null", if the input is a null object
+    } if (typeof value === "object" && !Array.isArray(value) && value === null) {
+      return "null";
+    }
+      //returning the typeof value for input value, if input value does not execute the above if statements
+      return typeof value;
+  }
 /** _.first
 * Arguments:
 *   1) An array
@@ -114,7 +123,16 @@ _.typeOf = function (value) {
 *   _.indexOf(["a","b","c"], "c") -> 2
 *   _.indexOf(["a","b","c"], "d") -> -1
 */
-
+_.indexOf = function (array, value) {
+//creating a for-loop to iterate through array 
+    for (var i = 0; i < array.length; i++) {
+// returning the index of the array, if the first occurance of the input value is located
+    if (value === array[i]) {
+    return i;
+  }
+// returning -1, if input value is not found in array 
+} return -1;
+  }
 
 /** _.contains
 * Arguments:
@@ -130,6 +148,15 @@ _.typeOf = function (value) {
 * Examples:
 *   _.contains([1,"two", 3.14], "two") -> true
 */
+_.contains = function (array, value) {
+  for (var i = 0; i < array.length; i++) {
+    //returning true, if the value is found in the array
+if (array[i] === value) {
+  return true;
+} //returning false, if the value is NOT found in the array to satisfy edge cases 
+    return false; 
+  }
+}
 
 
 /** _.each

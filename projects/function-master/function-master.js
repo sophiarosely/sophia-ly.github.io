@@ -184,8 +184,21 @@ function isFriend(name, object) {
 /*nonFriends() : Should take a name and a list of people, and return a list of 
 all the names that <name> is not friends with
 */
+/*
+var data = [
+  {name: "Jimmy", friends:["Sara", "Liza"]},
+  {name: "Bob", friends:[]},
+  {name: "Liza", friends: ["Jimmy"]},
+  {name: "Sara", friends: ["Jimmy"]}
+];
+*/
 
 function nonFriends(name, array) {
+  for (var i = 0; i < array.length; i++) {
+    if (array.name === name) {
+      return 
+    }
+  }
 
 }
 
@@ -227,7 +240,10 @@ function removeProperties(object, array) {
 //////////////////////////////////////////////////////////////////////
 
 function dedup(array) {
-
+//creating a variable that will contain the new array with the duplicates removed
+  let arrays = [...new Set(array)];
+  //returning the new array with the duplicates removed 
+return arrays;
 }
 
 //////////////////////////////////////////////////////////////////////

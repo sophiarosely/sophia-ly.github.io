@@ -84,9 +84,9 @@ console.log(flower2); // => prints “hydrangeas”
 console.log(flower3); =/> prints “tulips”
 
 //using let in code block 
-var flower = “roses”
-{var flower2 = “hydrangeas”;
-let flower3 = “tulips”;
+var flower = "roses";
+{var flower2 = "hydrangeas";
+let flower3 = "tulips";
 }
 console.log(flower); // => prints “roses”
 console.log(flower2); // => prints “hydrangeas”

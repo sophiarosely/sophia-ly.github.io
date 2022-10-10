@@ -30,7 +30,7 @@
 // The code block associated with the if-statement is executed because the condition is true
 var color = “pink”;
 if (color === “pink”) {
-console.log(“That's my favorite color! I love pink!”);
+    console.log(“That's my favorite color! I love pink!”);
  // => prints “That’s my favorite color! I love pink!”
 
  //2. else-if statements //
@@ -40,12 +40,12 @@ console.log(“That's my favorite color! I love pink!”);
 if (color === “pink”) {
 console.log(“That's my favorite color! I love pink!”);
 } else if (color == “green”) {
-console.log(“That's my second favorite color..”)
+console.log(“That's my second favorite color..'”);
 } 
 // => prints "That's my second favorite color.."
 
 //3. else statements// 
- // The code block associated with the else statement is executed because all of the previous conditions were false, 
+ // The code block associated with the else statement is executed because all of the previous conditions were false. 
 var color = “pink”;
 if (color === “pink”) {
 console.log(“That's my favorite color! I love pink!”);

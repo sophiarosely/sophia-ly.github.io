@@ -87,6 +87,21 @@ _.typeOf = function (value) {
 *   _.first(["a", "b", "c"], 1) -> "a"
 *   _.first(["a", "b", "c"], 2) -> ["a", "b"]
 */
+_.first = function (array, number) {
+  var emptyArray = [];
+  //returning an empty array, if array is not an array
+  if (!Array.isArray(array)) {
+    return emptyArray;
+  //returning the first element in array, if number is not given or not a number
+  } if (!number) {
+    return array[0];
+    //returning the first "number" items of array 
+  } if (typeof number === "number") {
+    return array.splice(0, number);
+  }
+  }
+
+
 
 
 /** _.last
@@ -107,6 +122,18 @@ _.typeOf = function (value) {
 *   _.last(["a", "b", "c"], 2) -> ["b", "c"]
 */
 
+_.last = function(array, number) {
+  var emptyArray = [];
+  if (!Array.isArray(array)) {
+    return emptyArray;
+  } if (!number) {
+    return array[array.length - 1]; 
+  } if (typeof number === "number" && !(number < 0)) {
+    return array.splice(-number);
+  } if (-number) {
+    return emptyArray;
+  }
+};
 
 /** _.indexOf
 * Arguments:
@@ -286,14 +313,26 @@ if (Array.isArray(collection)) {
 * Examples:
 *   _.pluck([{a: "one"}, {a: "two"}], "a") -> ["one", "two"]
 */
-
+/*
+_.pluck = function (array, property) {
+  //iterating through each element in array containing element 
+  for(var i = 0; i < array.length; i++) {
+    //accessing every property of each object 
+    for var key in array[i] {
+      console.log([key]);
+    }
+  }
+  //returning array containing value of property for every element in array
+  return emptyArray;
+}
+*/
 
 /** _.every
 * Arguments:
 *   1) A collection
 *   2) A function
 * Objectives:
-*   1) Call <function> for every element of <collection> with the paramaters:
+*   1) Call <function> for every element of <collection> with the parameters:
 *      if <collection> is an array:
 *          current element, it's index, <collection>
 *      if <collection> is an object:
@@ -309,6 +348,44 @@ if (Array.isArray(collection)) {
 *   _.every([1,2,3], function(e){return e % 2 === 0}) -> false
 */
 
+_.every = function (collection, func) {
+  //determine if func was not passed in 
+  if (func === undefined) {
+    //determine if array 
+    if (Array.isArray(collection)) {
+      for (var i = 0; i < collection.length; i++) {
+        if (!collection[i]) {// determine if collection[i] is truthy
+          return false; 
+        }
+      }
+    } else { 
+      for (let key in collection) {
+      if (!collection[key]) {
+        return false; 
+      }
+    }
+    }
+  } else { // func was defined
+    //determine if collection is an array
+    if (Array.isArray(collection)) {
+      //iterate through every value in array 
+      for (var i = 0; i < collection.length; i++) {
+        //determine if the result of invoking func on the params is true
+        if (func(collection[i], i, collection) === false) {
+          return false;
+        }
+      }
+    } else { //it's an obbject 
+      //iterate through object 
+      for (let key in collection) {
+        if (func(collection[key], key, collection) === false) {
+          return false;
+        }
+      }
+    }
+  }
+  return true;
+}
 
 /** _.some
 * Arguments:

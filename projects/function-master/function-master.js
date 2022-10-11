@@ -16,7 +16,7 @@ return (Object.values(object));
   // //should take an object and return all its keys in a string each separated by a space 
 function keysToString(object) {
     //this takes all the keys from this object and puts it into an array
-  var array = Object.keys(object);
+   var array = Object.keys(object);
   // ==> [key, key]
   //now, we have to turn the array into strings 
   var newStrings = array.join(" ");

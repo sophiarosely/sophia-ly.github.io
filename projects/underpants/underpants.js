@@ -178,14 +178,9 @@ _.indexOf = function (array, value) {
 _.contains = function (array, value) {
   for (var i = 0; i < array.length; i++) {
     //returning true, if the value is found in the array
-if (array[i] === value) {
-  return true;
-} //returning false, if the value is NOT found in the array to satisfy edge cases 
-return false; 
-  }
+ return (array[i] === value ? true : false)
 }
-
-
+}
 /** _.each
 * Arguments:
 *   1) A collection
@@ -235,7 +230,7 @@ if (Array.isArray(collection)) {
 */
 
 _.unique = function(array) {
-  //creating a new array of all the duplicates removed 
+  //creating a new array for all the non-duplicated values from input array
   let nonDuplicates = [];
   //creating a for-loop to loop through input array 
   for( var i = 0; i < array.length; i++){
@@ -248,8 +243,6 @@ _.unique = function(array) {
 //returning nonDuplicates array
 return nonDuplicates;
 }
-
-
 
 
 
@@ -271,15 +264,20 @@ return nonDuplicates;
 _.filter = function(array, func) {
   //creating a new array that contains elements that returned true 
   let trueArray = [];
-  //looping through array 
+  //looping through input array 
   for(var i = 0; i < array.length; i++) {
   //calling function for each element in array, with arguments of: element, index, and array
-  if (func(array[i], [i], array) === "true")  {
-    trueArray.push(array[i]);
+  // as long as it results in true
+  if (func(array[i], [i], array) === true && func(array[i], [i], array) !== false )  {
+    //pushing elements that returned true into new array
+    trueArray.push(array[i]); 
   }
+  }
+  //returning array that contains elements that returned true 
   return trueArray;
   }
-}
+
+
 
 /** _.reject
 * Arguments:
@@ -294,6 +292,15 @@ _.filter = function(array, func) {
 *   _.reject([1,2,3,4,5], function(e){return e%2 === 0}) -> [1,3,5]
 */
 
+_.reject = function (array, func) {
+  let falseArray = [];
+  for (var i = 0; i < array.length; i++) {
+  if (func(array[i], [i], array) === false) {
+   falseArray.push(array[i]);
+  }
+}
+return falseArray;
+}
 
 /** _.partition
 * Arguments:

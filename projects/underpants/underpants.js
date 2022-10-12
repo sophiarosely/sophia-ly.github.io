@@ -181,7 +181,7 @@ _.contains = function (array, value) {
 if (array[i] === value) {
   return true;
 } //returning false, if the value is NOT found in the array to satisfy edge cases 
-    return false; 
+return false; 
   }
 }
 
@@ -234,6 +234,24 @@ if (Array.isArray(collection)) {
 *   _.unique([1,2,2,4,5,6,5,2]) -> [1,2,4,5,6]
 */
 
+_.unique = function(array) {
+  //creating a new array of all the duplicates removed 
+  let nonDuplicates = [];
+  //creating a for-loop to loop through input array 
+  for( var i = 0; i < array.length; i++){
+    //if the indexOf the array value is equal to -1, this means, it is not in the nonDuplicates array
+    if(nonDuplicates.indexOf(array[i]) === -1) {
+    //if value is not a repeat, it will be pushed into nonDuplicates array, preventing duplicates
+        nonDuplicates.push(array[i]);
+    }
+}
+//returning nonDuplicates array
+return nonDuplicates;
+}
+
+
+
+
 
 /** _.filter
 * Arguments:
@@ -250,7 +268,18 @@ if (Array.isArray(collection)) {
 * Extra Credit:
 *   use _.each in your implementation
 */
-
+_.filter = function(array, func) {
+  //creating a new array that contains elements that returned true 
+  let trueArray = [];
+  //looping through array 
+  for(var i = 0; i < array.length; i++) {
+  //calling function for each element in array, with arguments of: element, index, and array
+  if (func(array[i], [i], array) === "true")  {
+    trueArray.push(array[i]);
+  }
+  return trueArray;
+  }
+}
 
 /** _.reject
 * Arguments:
@@ -315,6 +344,7 @@ if (Array.isArray(collection)) {
 */
 /*
 _.pluck = function (array, property) {
+  var emptyArray = []; 
   //iterating through each element in array containing element 
   for(var i = 0; i < array.length; i++) {
     //accessing every property of each object 

@@ -192,19 +192,23 @@ var data = [
   {name: "Sara", friends: ["Jimmy"]}
 ];
 */
-/*
-function nonFriends(name, array) {
-  var notFriends = [];
-  for (var i = 0; i < array.length; i++) {
-   if (array[i].indexOf(name) === -1) {
-    return 
-   }
-    notFriends.push(); 
-    return notFriends;
 
+function nonFriends(name, array) {
+  var newArray = [];
+//creating a for-loop to loop through array
+for (var i = 0; i < array.length; i++) {
+  //if name is found in name property, do not access object
+ if (array[i].name === name) {
+ } 
+   //if person does not have friend
+  if (array[i].friends.length === 0) {
+    newArray.push()
+  }
+}
+//returning a new array 
+return newArray;
 }
 
-*/
 //////////////////////////////////////////////////////////////////////
 // Function 14 - Update Object ///////////////////////////////////////
 //////////////////////////////////////////////////////////////////////

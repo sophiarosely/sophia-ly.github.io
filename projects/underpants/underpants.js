@@ -125,13 +125,18 @@ _.first = function (array, number) {
 */
 
 _.last = function(array, number) {
+  //creating an empty array 
   var emptyArray = [];
+  //if array is not an array, returning an empty array
   if (!Array.isArray(array)) {
     return emptyArray;
+    //if number is not a number or is not given, return the last element in array 
   } if (!number) {
     return array[array.length - 1]; 
+    //if number is positive, return the last element in array 
   } if (typeof number === "number" && !(number < 0)) {
     return array.splice(-number);
+    //if number is negative, return an empty array 
   } if (-number) {
     return emptyArray;
   }
@@ -177,6 +182,7 @@ _.indexOf = function (array, value) {
 * Examples:
 *   _.contains([1,"two", 3.14], "two") -> true
 */
+
 _.contains = function (array, value) {
   //create a boolean flag 
   var flag = false; 
@@ -373,10 +379,21 @@ _.partition = function (array, func) {
 */
 
 _.map = function (collection, func) {
+      //creating new array
+      var newArray = [];
   //looping through collection 
     for (var i = 0; i < collection.length; i++) {
-      //calling function for e
+      //calling function for each element in collection passing arguments of e, i, collection for array
+      if (func(collection[i], i, collection)) {
+          //return value 
+          newArray.push(collection[i]);
+      } if (func(collection[key], [key], collection)) {
+        //return value 
+        newArray.push(collection[key])
+      }
     }
+      //returning the new array
+    return newArray;
 }
 /** _.pluck
 * Arguments:

@@ -380,21 +380,25 @@ _.partition = function (array, func) {
 
 _.map = function (collection, func) {
       //creating new array
-      var newArray = [];
-  //looping through collection 
-    for (var i = 0; i < collection.length; i++) {
-      //calling function for each element in collection passing arguments of e, i, collection for array
-      if (func(collection[i], i, collection)) {
-          //return value 
-          newArray.push(collection[i]);
-      } if (func(collection[key], [key], collection)) {
-        //return value 
-        newArray.push(collection[key])
-      }
-    }
-      //returning the new array
-    return newArray;
-}
+      var newArray = []; 
+        //checking if collection is an array 
+              if (Array.isArray(collection)) {
+                //looping through collection if it is an array
+          for (var i = 0; i < collection.length; i++) {
+            //returning the value of function call into new array 
+           newArray.push(func(collection[i], i, collection)); 
+          }
+        } else {
+          //if it's not an array, it is an object => looping through object
+          for (let key in collection ) { 
+            //returning the value of function call into new array
+            newArray.push(func(collection[key], key, collection)); 
+          }
+        }
+        //returning new array
+        return newArray;
+  }
+  
 /** _.pluck
 * Arguments:
 *   1) An array of objects
@@ -405,20 +409,10 @@ _.map = function (collection, func) {
 * Examples:
 *   _.pluck([{a: "one"}, {a: "two"}], "a") -> ["one", "two"]
 */
-/*
+
 _.pluck = function (array, property) {
-  var emptyArray = []; 
-  //iterating through each element in array containing element 
-  for(var i = 0; i < array.length; i++) {
-    //accessing every property of each object 
-    for var key in array[i] {
-      console.log([key]);
-    }
-  }
-  //returning array containing value of property for every element in array
-  return emptyArray;
+
 }
-*/
 
 /** _.every
 * Arguments:
@@ -468,7 +462,7 @@ _.every = function (collection, func) {
           return false;
         }
       }
-    } else { //it's an obbject 
+    } else { //it's an object 
       //iterate through object 
       for (let key in collection) {
         if (func(collection[key], key, collection) === false) {

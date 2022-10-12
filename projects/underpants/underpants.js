@@ -176,11 +176,15 @@ _.indexOf = function (array, value) {
 *   _.contains([1,"two", 3.14], "two") -> true
 */
 _.contains = function (array, value) {
+  //create a boolean flag operator
+  var flag = true; 
   for (var i = 0; i < array.length; i++) {
     //returning true, if the value is found in the array
- return (array[i] === value ? true : false)
+ return (array[i] === value ? true : false);
 }
+return flag;
 }
+
 /** _.each
 * Arguments:
 *   1) A collection
@@ -464,7 +468,27 @@ _.every = function (collection, func) {
 * Examples:
 *   _.reduce([1,2,3], function(previousSum, currentValue, currentIndex){ return previousSum + currentValue }, 0) -> 6
 */
-
+_.reduce = function (array, func, seed) {
+  //create result variable
+     let result;
+    //determine if seed was not given a value
+    if (seed === undefined) {
+      //assign result first value in array          
+        result = array[0];
+        //iterate through input array
+        for (let = 1; i < array.length; i++) {
+          result = func(result, array[i], i, array);
+        }
+      } else  {
+        //assign result the seed value
+          result = seed; 
+          //iterate normally
+          for (let i = 0; i < array.length; i++) {
+            result = func(result, array[i], i, array);
+          }
+      }
+//else seed has a value
+}
 
 /** _.extend
 * Arguments:

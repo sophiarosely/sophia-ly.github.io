@@ -197,13 +197,11 @@ function nonFriends(name, array) {
   var newArray = [];
 //creating a for-loop to loop through array
 for (var i = 0; i < array.length; i++) {
-  //if name is found in name property, do not access object
- if (array[i].name === name) {
- } 
-   //if person does not have friend
-  if (array[i].friends.length === 0) {
-    newArray.push()
-  }
+  //if name is not found in their list, they will be added to the non-friends array 
+ if (array[i].friends.includes(name) === false) {
+  //adding to non-friends array 
+  newArray.push(name);
+ }
 }
 //returning a new array 
 return newArray;

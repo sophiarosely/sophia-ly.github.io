@@ -3,6 +3,8 @@
 // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Strict_mode
 'use strict';
 
+//const { result } = require("lodash");
+
 // declaring a variable _ and assigning it an empty object
 var _ = {};
 //add properties to this object and it will be functions 
@@ -176,11 +178,11 @@ _.indexOf = function (array, value) {
 *   _.contains([1,"two", 3.14], "two") -> true
 */
 _.contains = function (array, value) {
-  //create a boolean flag operator
-  var flag = true; 
+  //create a boolean flag 
+  var flag = false; 
   for (var i = 0; i < array.length; i++) {
     //returning true, if the value is found in the array
- return (array[i] === value ? true : false);
+  (array[i] === value ? true : flag);
 }
 return flag;
 }
@@ -275,8 +277,8 @@ _.filter = function(array, func) {
   if (func(array[i], [i], array) === true && func(array[i], [i], array) !== false )  {
     //pushing elements that returned true into new array
     trueArray.push(array[i]); 
-  }
-  }
+      }
+                }
   //returning array that contains elements that returned true 
   return trueArray;
   }
@@ -297,9 +299,14 @@ _.filter = function(array, func) {
 */
 
 _.reject = function (array, func) {
-  let falseArray = [];
-  for (var i = 0; i < array.length; i++) {
+  //creating a new array that contains elements that returned false
+      let falseArray = [];
+   //looping through input array 
+      for (var i = 0; i < array.length; i++) {
+        //calling function for each element in array, with arguments of: element, index, and array
+  // as long as it results in false
   if (func(array[i], [i], array) === false) {
+     //pushing elements that returned false into new array
    falseArray.push(array[i]);
   }
 }
@@ -312,7 +319,7 @@ return falseArray;
 *   2) A function
 * Objectives:
 *   1) Call <function> for each element in <array> passing it the arguments:
-*       element, key, <array>
+*       element, index, <array>
 *   2) Return an array that is made up of 2 sub arrays:
 *       0) An array that contains all the values for which <function> returned something truthy
 *       1) An array that contains all the values for which <function> returned something falsy
@@ -324,6 +331,29 @@ return falseArray;
 *   }); -> [[2,4],[1,3,5]]
 }
 */
+_.partition = function (array, func) {
+  //creating an array to place 2 sub arrays
+  var newArray = [];
+  //creating first sub array
+  var subArray = [];
+  //creating second sub array 
+  var subArrayTwo = [];
+    //looping through input array
+      for (var i =  0; i < array.length; i++) {
+        //calling function for elements in array, with arguments of element, index, array
+            if (func(array[i], i, array) === true) {
+                //pushes to subArray, if array values returned truthy 
+              subArray.push(array[i]);
+        } if (func(array[i], i, array) === false) {
+              //pushes to subArrayTwo if array values returned falsy
+          subArrayTwo.push(array[i]);
+        }
+     }
+             //pushing both subarrays into one final array
+             newArray.push(subArray, subArrayTwo);
+             //returning an array that is made of 2 sub arrays
+                return newArray;
+    }
 
 
 /** _.map
@@ -342,7 +372,12 @@ return falseArray;
 *   _.map([1,2,3,4], function(e){return e * 2}) -> [2,4,6,8]
 */
 
-
+_.map = function (collection, func) {
+  //looping through collection 
+    for (var i = 0; i < collection.length; i++) {
+      //calling function for e
+    }
+}
 /** _.pluck
 * Arguments:
 *   1) An array of objects
@@ -476,7 +511,7 @@ _.reduce = function (array, func, seed) {
       //assign result first value in array          
         result = array[0];
         //iterate through input array
-        for (let = 1; i < array.length; i++) {
+        for (let i = 1; i < array.length; i++) {
           result = func(result, array[i], i, array);
         }
       } else  {
@@ -487,7 +522,8 @@ _.reduce = function (array, func, seed) {
             result = func(result, array[i], i, array);
           }
       }
-//else seed has a value
+      //else seed has a value
+      return result;
 }
 
 /** _.extend

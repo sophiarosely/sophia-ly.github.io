@@ -185,27 +185,52 @@ function isFriend(name, object) {
 all the names that <name> is not friends with
 */
 /*
-var data = [
-  {name: "Jimmy", friends:["Sara", "Liza"]},
-  {name: "Bob", friends:[]},
-  {name: "Liza", friends: ["Jimmy"]},
-  {name: "Sara", friends: ["Jimmy"]}
-];
+ var data = [
+        {name: "Jimmy", friends:["Sara", "Liza"]},
+        {name: "Bob", friends:[]},
+        {name: "Liza", friends: ["Jimmy"]},
+        {name: "Sara", friends: ["Jimmy"]}
+      ];
+      assert.deepEqual(nonFriends("Jimmy", data), ["Bob"]);
+      assert.deepEqual(nonFriends("Bob", data), ["Jimmy", "Liza", "Sara"]);
+      assert.deepEqual(nonFriends("Sara", data), ["Bob","Liza"]);
+    });
 */
 
+
 function nonFriends(name, array) {
-  var newArray = [];
-//creating a for-loop to loop through array
-for (var i = 0; i < array.length; i++) {
-  //if name is not found in their list, they will be added to the non-friends array 
- if (array[i].friends.includes(name) === false) {
-  //adding to non-friends array 
-  newArray.push(name);
- }
+  var nameList = []; //variable for list of names 
+  var notFriends = []; // variable for list of names that are not friends of input name 
+  var current = null; // variable to represent each object in the array 
+
+  //creating a for-loop to loop through object 
+  for(var i = 0; i < array.length; i++){
+    //if name is found in the name property, 
+      if(name === array[i].name){
+          current = array[i]; // current represents the object in array 
+        //else, it is pushed into the list of names
+      }else {
+          nameList.push(array[i].name);
+      }
+  }
+  //if the current object is equal to null, return list of names 
+  if(current === null){
+      return nameList;
+  }
+  //creating a for-loop to loop through name list 
+  for(var i = 0; i < nameList.length; i++){
+    //if the name is not in the list, it is pushed into the notFriends list 
+      if(current.friends.indexOf(nameList[i]) == -1){
+          notFriends.push(nameList[i]);
+      }
+  }
+  //returning the notFriends array 
+  return notFriends;
 }
-//returning a new array 
-return newArray;
-}
+
+
+
+
 
 //////////////////////////////////////////////////////////////////////
 // Function 14 - Update Object ///////////////////////////////////////

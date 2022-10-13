@@ -50,13 +50,23 @@ function fizzBuzz(num1, num2) {
 ////////////////////////////////////////////////////////////////////////////////
 
 function drawChessboard(size) {
+    //creating an empty string where a space or hashtag prints
   var board = "";
-  for(var i = 0; i < size; i++){
-   for(var a = 0; a < size; a++){
-    board += (a % 2) == (i % 2) ? " " : "#";
-   }
-   board += "\n";
+  //creating a nested for-loop 
+for (x = 0; x < size; x++) {
+  for (y = 0; y < size; y++) {
+    //if it is in an even space, it will print a space 
+    if ((x + y) % 2 == 0) {
+      board += " ";
+    }// if it is in an odd space, it will print a hashtag
+    else {
+      board += "#";
+    }
+    //
   }
+  board += "\n";
+}
+  return board;
 }
 
 ////////////////////////////////////////////////////////////////////////////////

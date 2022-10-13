@@ -188,7 +188,7 @@ _.contains = function (array, value) {
   var flag = false; 
   for (var i = 0; i < array.length; i++) {
     //returning true, if the value is found in the array
-  (array[i] === value ? true : flag);
+  return (array[i] === value ? true : flag);
 }
 return flag;
 }
@@ -409,10 +409,15 @@ _.map = function (collection, func) {
 * Examples:
 *   _.pluck([{a: "one"}, {a: "two"}], "a") -> ["one", "two"]
 */
+/*
 
 _.pluck = function (array, property) {
+      return _.map(array, function(array[i][key], [key], array[i] {
+        return [array][i][key];
+      });
+    }
 
-}
+    */
 
 /** _.every
 * Arguments:
@@ -551,6 +556,10 @@ _.reduce = function (array, func, seed) {
 *   _.extend(data, {b:"two"}); -> data now equals {a:"one",b:"two"}
 *   _.extend(data, {a:"two"}); -> data now equals {a:"two"}
 */
+
+//use es6 to understand this
+_.extend = function (object, ...object2) {
+}
 
 //////////////////////////////////////////////////////////////////////
 // DON'T REMOVE THIS CODE ////////////////////////////////////////////

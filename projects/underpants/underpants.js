@@ -593,20 +593,14 @@ _.reduce = function (array, func, seed) {
 *   _.extend(data, {a:"two"}); -> data now equals {a:"two"}
 */
 
-/*
-//use es6 to understand this
 _.extend = function (object, ...object2) {
-  //copies properties from object 2 to object 1
-  Object.assign(object, object2); 
-  for (var key in object) {
-    //copy all properties to object 1, as well
-  Object.assign(object, object2);
+  console.log(object2);
+  for (let key in object2) {
+    var finalObj = Object.assign(object, object2[key]); 
   }
+  return finalObj;
 }
-  //return updated object 1
-  return object;
-}
-*/
+
 //////////////////////////////////////////////////////////////////////
 // DON'T REMOVE THIS CODE ////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////

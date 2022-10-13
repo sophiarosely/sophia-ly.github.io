@@ -187,8 +187,8 @@ _.contains = function (array, value) {
   //create a boolean flag 
   var flag = false; 
   for (var i = 0; i < array.length; i++) {
-    //returning true, if the value is found in the array
-  return (array[i] === value ? true : flag);
+    //returning true, if the value is found in the array, flag if not...
+    (array[i] === value ? true : flag);
 }
 return flag;
 }
@@ -399,7 +399,7 @@ _.map = function (collection, func) {
         return newArray;
   }
   
-/** _.pluck
+/**_.pluck
 * Arguments:
 *   1) An array of objects
 *   2) A property
@@ -409,17 +409,18 @@ _.map = function (collection, func) {
 * Examples:
 *   _.pluck([{a: "one"}, {a: "two"}], "a") -> ["one", "two"]
 */
-/*
 
-_.pluck = function (array, property) {
-      return _.map(array, function(array[i][key], [key], array[i] {
-        return [array][i][key];
-      });
-    }
+_.pluck = function(array, prop) {
+  //creating array of values 
+  let valuesArray = [];
+  _.map(array, function() {
 
-    */
+  });
+  //return array; 
+  return valuesArray; 
+};
 
-/** _.every
+/**  _.every
 * Arguments:
 *   1) A collection
 *   2) A function
@@ -500,6 +501,40 @@ _.every = function (collection, func) {
 *   _.some([1,2,3], function(e){return e % 2 === 0}) -> true
 */
 
+_.some = function (collection, func) {
+  if (func === undefined) {
+    //determine if an array 
+    if (Array.isArray(collection)) {
+      for (var i = 0; i < collection.length; i++) {
+        if (collection[i]) {
+          return true; 
+        }
+      }
+    } else { 
+      for (var key in collection) {
+        if (collection[key]) {
+          return true; 
+
+        }
+      }
+    }
+  } else {
+    if (Array.isArray(collection)) {
+      for (var i = 0; i < collection.length; i++) {
+        if (func(collection[i], i, collection) === true) {
+          return true; 
+        }
+      }
+    } else {
+      for (var key in collection) {
+        if (func(collection[key], key, collection) === true) {
+          return true;
+        }
+      }
+    }
+  }
+  return false; 
+}
 
 /** _.reduce
 * Arguments:
@@ -519,6 +554,7 @@ _.every = function (collection, func) {
 * Examples:
 *   _.reduce([1,2,3], function(previousSum, currentValue, currentIndex){ return previousSum + currentValue }, 0) -> 6
 */
+
 _.reduce = function (array, func, seed) {
   //create result variable
      let result;
@@ -557,10 +593,20 @@ _.reduce = function (array, func, seed) {
 *   _.extend(data, {a:"two"}); -> data now equals {a:"two"}
 */
 
+/*
 //use es6 to understand this
 _.extend = function (object, ...object2) {
+  //copies properties from object 2 to object 1
+  Object.assign(object, object2); 
+  for (var key in object) {
+    //copy all properties to object 1, as well
+  Object.assign(object, object2);
+  }
 }
-
+  //return updated object 1
+  return object;
+}
+*/
 //////////////////////////////////////////////////////////////////////
 // DON'T REMOVE THIS CODE ////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////

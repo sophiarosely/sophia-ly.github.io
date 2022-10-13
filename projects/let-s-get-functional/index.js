@@ -3,7 +3,7 @@
 'use strict';
 
 var customers = require('./data/customers.json');
-var _ = require(/* Replace this with the name of your lodown! */);
+var _ = require('underbar');
 
 /**
  * 1. Import your lodown module using the require() method,
@@ -16,22 +16,59 @@ var _ = require(/* Replace this with the name of your lodown! */);
  *
  * 4. To test your work, run the following command in your terminal:
  *
- *    npm start --prefix ./<YOUR_GITHUB_FOLDER/projects/let-s-get-functional
+ *    npm start --prefix ./sophia-ly.github.io/projects/let-s-get-functional
  *
  *    IMPORTANT: Make sure you replace <YOUR_GITHUB_FOLDER with your actual github folder name that is in your workspace.
  */
 
+// filter => use for any functioni asking you to access only customers who pass a test 
+
+// map => use if you need to return a new array of every value from input array transformed 
+
+// reduce => iterates through an array to "accumulate a single return value"
+
+
 var maleCount = function(array) {
+    //implement a high-order function call --> filter
+    let males = _.filter(array, function(customer){ //assign males to result of what filter function returns 
+    //return true if the input customer is male 
+   return customer.gender === "male";
+}); // [male, male, male];
+return males.length; //represents count of male customers 
+};
+
+var femaleCount = function(array) {
+    //implement reduce to get number of female customers 
+    let females = _.reduce(array, function(acc, current){
+        //acc = 0 | current = {name: "Sophia", gender: "female"};
+        if (current.gender === "female"){
+            acc += 1; // acc = 1
+        } 
+        return acc; // return 1
+    }, 0); 
+    return females; 
+};
+
+/**
+ * invoke _.reduce
+ * seed or no seed  => seed value of 0 => result = 0
+ * 
+ * //iterate through array
+ *  //0
+ *      //result = func(0, {customer, -, [....]});
+ * 
+ */
+
+
+var oldestCustomer = function (array) {
 
 };
 
-var femaleCount;
-
-var oldestCustomer;
-
 var youngestCustomer;
 
-var averageBalance;
+var averageBalance = function () {
+
+};
 
 var firstLetterCount;
 

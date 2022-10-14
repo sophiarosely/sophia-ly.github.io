@@ -413,9 +413,9 @@ _.map = function (collection, func) {
 
 _.pluck = function(array, prop) {
     //using map function to loop over every element in the input array, which will return a new array 
-       return _.map(array, function() {
+       return _.map(array, function(arrayValue) {
         //pushing every property value to new array 
-           return array[i][prop];
+           return arrayValue[prop];
     }); 
   }
 

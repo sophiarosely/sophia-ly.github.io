@@ -184,14 +184,14 @@ _.indexOf = function (array, value) {
 */
 
 _.contains = function (array, value) {
-  //create a boolean flag 
-  var flag = false; 
-  for (var i = 0; i < array.length; i++) {
-    //returning true, if the value is found in the array, flag if not...
-    (array[i] === value ? true : flag);
-}
-return flag;
-}
+  //if array includes value, returns true 
+    if (array.includes(value)) {
+      return true;
+    }
+    //returning false if array does not include value
+    return false;
+  }
+
 
 /** _.each
 * Arguments:
@@ -378,6 +378,7 @@ _.partition = function (array, func) {
 *   _.map([1,2,3,4], function(e){return e * 2}) -> [2,4,6,8]
 */
 
+
 _.map = function (collection, func) {
       //creating new array
       var newArray = []; 
@@ -411,14 +412,12 @@ _.map = function (collection, func) {
 */
 
 _.pluck = function(array, prop) {
-  //creating array of values 
-  let valuesArray = [];
-  _.map(array, function() {
-
-  });
-  //return array; 
-  return valuesArray; 
-};
+    //using map function to loop over every element in the input array, which will return a new array 
+       return _.map(array, function() {
+        //pushing every property value to new array 
+           return array[i][prop];
+    }); 
+  }
 
 /**  _.every
 * Arguments:

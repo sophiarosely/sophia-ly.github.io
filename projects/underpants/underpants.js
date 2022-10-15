@@ -75,7 +75,7 @@ _.typeOf = function (value) {
 /** _.first
 * Arguments:
 *   1) An array
-*   2) A number
+*   2) A numberr
 * Objectives:
 *   1) If <array> is not an array, return []
 *   2) If <number> is not given or not a number, return just the first element in <array>.
@@ -501,15 +501,17 @@ _.every = function (collection, func) {
 */
 
 _.some = function (collection, func) {
+  //determine if function was passed in 
   if (func === undefined) {
-    //determine if an array 
+     //determine if array 
     if (Array.isArray(collection)) {
-      for (var i = 0; i < collection.length; i++) {
+      for (var i = 0; i < collection.length; i++) { // determine if collection[i] is truthy
         if (collection[i]) {
           return true; 
         }
       }
-    } else { 
+    } else { //it's an object 
+       //iterate through object 
       for (var key in collection) {
         if (collection[key]) {
           return true; 
@@ -518,13 +520,16 @@ _.some = function (collection, func) {
       }
     }
   } else {
+     //determine if collection is an array
     if (Array.isArray(collection)) {
+      //iterate through every value in array 
       for (var i = 0; i < collection.length; i++) {
         if (func(collection[i], i, collection) === true) {
           return true; 
         }
       }
-    } else {
+    } else {//it's an object 
+        //iterate through object 
       for (var key in collection) {
         if (func(collection[key], key, collection) === true) {
           return true;
@@ -593,10 +598,11 @@ _.reduce = function (array, func, seed) {
 */
 
 _.extend = function (object, ...object2) {
-  console.log(object2);
+  //looping through object and copying argument's properties to object 
   for (let key in object2) {
     var finalObj = Object.assign(object, object2[key]); 
   }
+  //returning updated object
   return finalObj;
 }
 

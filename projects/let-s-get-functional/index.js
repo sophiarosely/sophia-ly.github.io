@@ -55,25 +55,63 @@ var femaleCount = function(array) {
  * 
  * //iterate through array
  *  //0
- *      //result = func(0, {customer, -, [....]});
+ *         // result = 0
+ * //1
+ *      //result = 1
+ * //2
+ *      //result = func(1, {customer, 2, []);
  * 
  */
 
 
 var oldestCustomer = function (array) {
-let oldest = _.reduce(array, function(previous, current) {
-    return (current.age > previous ? current.age : previous);
-}, 0);
-return oldest; 
-};
+    let oldestAge = _.reduce(array, function(previous, current) {
+        // if previous's age is greater than current's age, return previous's object
+     if (previous.age > current.age) {
+        return previous;
+        //if not, return current's object
+    } else {
+        return current;
+    } 
+    });
+        //returning oldest age's name
+        return oldestAge.name;
+}
 
-var youngestCustomer;
+
+var youngestCustomer = function (array) {
+  let youngestAge = _.reduce(array, function (previous, current) { 
+        //if previous object's age is less than the current object's, return previous object
+    if (previous.age < current.age) {
+        return previous;
+        //else, return the current object
+    } else {
+        return current; 
+    }
+
+  });
+  //returning youngest customer's name 
+  return youngestAge.name;
+};
 
 var averageBalance = function () {
 
 };
 
-var firstLetterCount;
+var firstLetterCount = function (array, letter) {
+    let count = 0; 
+    for (var i = 0; i < array.length; i++) {
+    let firstLetter = _.first(array[i], 1) {
+    if (array[i].name = letter) {
+        count += 1; 
+    } else {
+        count; 
+    }
+}
+    }
+    //returning a number
+    return count; 
+    };
 
 var friendFirstLetterCount;
 
@@ -81,8 +119,21 @@ var friendsCount;
 
 var topThreeTags;
 
-var genderCount;
 
+var genderCount = 
+/*function (array) {
+    let genders = _.reduce(array, function (previous, current) {
+    if (previous.gender === "male" || previous.gender = "female" || previous.gender = "non-binary"){
+        return previous;
+    } else  {
+        return 
+    }
+   
+    });
+    //returning summary of objects
+};
+
+*/
 //////////////////////////////////////////////////////////////////////
 // DON'T REMOVE THIS CODE ////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////

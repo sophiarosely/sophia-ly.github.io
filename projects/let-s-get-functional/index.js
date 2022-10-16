@@ -94,26 +94,70 @@ var youngestCustomer = function (array) {
   return youngestAge.name;
 };
 
-var averageBalance = function () {
+/**
+ * ### 5: `averageBalance`
+ - **Objective**: Find the average balance of all customers
+ - **Input**: `Array`
+ - **Output**: `Number`
+ - **Constraints**:
+ */
 
+ 
+var averageBalance = function (array, number) {
+   let newBalance =  _.reduce(array, (previous, current) =>
+    // returns the sum of balances and removing special characters 
+    ((parseFloat(previous.balance.replace((/[$,.]/g, ""))) + 
+    (parseFloat(current.balance.replace((/[$,.]/g, ""))))
+    )
+return newBalance;
 };
 
+
+
+
 var firstLetterCount = function (array, letter) {
-    let count = 0; 
+    //creating variable to keep track of how many customers name begin with given letter
+    var count = 0;
+    //creating a for-loop to access each object's name property 
     for (var i = 0; i < array.length; i++) {
-    let firstLetter = _.first(array[i], 1) {
-    if (array[i].name = letter) {
-        count += 1; 
-    } else {
-        count; 
-    }
+    _.first(array[i], 1);
+    //if customer's name begins with the letter provided, increase count by 1
+        if (array[i].name.charAt(0).toUpperCase() === letter.toUpperCase()) {
+            count += 1
+            //else, keep count value
+        } else {
+            count; 
+        }
+
+    
 }
-    }
-    //returning a number
+    //returning count of customers 
     return count; 
     };
 
-var friendFirstLetterCount;
+  /**  ### 7: `friendFirstLetterCount`
+ - **Objective**: Find how many friends of a given customer have names that start with a given letter
+ - **Input**: `Array`, `Customer`, `Letter`
+ - **Output**: `Number`
+ - **Constraints**:
+ */
+
+var friendFirstLetterCount = function (array, customer, letter) {
+  //do i add a for-nested loop?
+  var count = 0; 
+  for (let i = 0; i < array.length; i++) {
+      _.first(array[i], 1); 
+      for (let j = 0; j < customer.length; j++)
+          if (customer.friends[j].name.charAt(0).toUpperCase() === letter.toUpperCase()) {
+              count += 1;
+          } else {
+              count; 
+          }
+          
+}
+return count; 
+};
+
 
 var friendsCount;
 
@@ -121,19 +165,7 @@ var topThreeTags;
 
 
 var genderCount = 
-/*function (array) {
-    let genders = _.reduce(array, function (previous, current) {
-    if (previous.gender === "male" || previous.gender = "female" || previous.gender = "non-binary"){
-        return previous;
-    } else  {
-        return 
-    }
-   
-    });
-    //returning summary of objects
-};
 
-*/
 //////////////////////////////////////////////////////////////////////
 // DON'T REMOVE THIS CODE ////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////

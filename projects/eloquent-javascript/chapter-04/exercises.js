@@ -17,8 +17,14 @@ return rangeArray;
 // sum /////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-function sum() {
-  var finalArray = newArray.reduce((previous, current) => previous + current, 0);
+function sum(array) {
+  var emptyArray = [];
+  //if array is an empty array, return the value 0
+  if (array === emptyArray) {
+    return 0;
+  }
+  //if it's not an empty array, return the sum of the array
+  return array.reduce((previous, current) => previous + current, 0);
 }
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -26,7 +32,7 @@ function sum() {
 ////////////////////////////////////////////////////////////////////////////////
 
 function reverseArray(array) {
-    //creating new reversed array 
+    //creating a NEW reversed array 
         let reversedArray = [];
         //creating for-loop to iterate each array value in reverse and push each value into new array
             for (let i = array.length - 1; i >= 0; i--) {
@@ -40,8 +46,12 @@ function reverseArray(array) {
 // reverseArrayInPlace /////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-function reverseArrayInPlace() {
-
+function reverseArrayInPlace(array) {
+  //using for-loop to alter original array 
+for (let i = array.length - 1; i < array; i-- ) {
+  var array = array[i];
+}
+return array;
 }
 
 ////////////////////////////////////////////////////////////////////////////////

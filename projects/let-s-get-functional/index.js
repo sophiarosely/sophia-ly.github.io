@@ -250,8 +250,7 @@ var topThreeTags =
  - **Constraints**: Use `reduce`
 
 */
-var genderCount =  function (array) {
-}
+var genderCount = 
 
 
 //////////////////////////////////////////////////////////////////////

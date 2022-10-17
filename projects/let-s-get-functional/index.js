@@ -26,6 +26,8 @@ var _ = require('underbar');
 // map => use if you need to return a new array of every value from input array transformed 
 
 // reduce => iterates through an array to "accumulate a single return value"
+ 
+
 
 
 var maleCount = function(array) {
@@ -103,14 +105,42 @@ var youngestCustomer = function (array) {
  */
 
  
-var averageBalance = function (array, number) {
-   let newBalance =  _.reduce(array, (previous, current) =>
-    // returns the sum of balances and removing special characters 
-    ((parseFloat(previous.balance.replace((/[$,.]/g, ""))) + 
-    (parseFloat(current.balance.replace((/[$,.]/g, ""))))
-    )
-return newBalance;
+var averageBalance = function (array) {
+
+   let sum =  _.reduce(array, (previous, current) => 
+   previous + parseFloat((current.balance.replace(/[$,.]/g, "")))
+   , 0);
+   //sum equals the total balance of ALL customers  ==> sum = 56456.78
+
+   //counting all total customer objects
+   let count =  _.reduce(array, function (acc, current) {
+    //current = {customer object}
+    if (typeof current === "object" ) {
+                acc += 1; // acc = 1
+                      } return acc;  //return total count
+         }, 0);
+                    // => count = how many customers 
+
+    //calculating average by dividing sum by number of customers 
+    let finalAverage = sum/count;
+    return finalAverage;
+
 };
+
+/**
+ * 
+ var femaleCount = function(array) {
+    //implement reduce to get number of female customers 
+    let females = _.reduce(array, function(acc, current){
+        //acc = 0 | current = {name: "Sophia", gender: "female"};
+        if (current.gender === "female"){
+            acc += 1; // acc = 1
+        } 
+        return acc; // return 1
+    }, 0); 
+    return females; 
+};
+ */
 
 
 
@@ -120,14 +150,11 @@ var firstLetterCount = function (array, letter) {
     var count = 0;
     //creating a for-loop to access each object's name property 
     for (var i = 0; i < array.length; i++) {
-    _.first(array[i], 1);
     //if customer's name begins with the letter provided, increase count by 1
         if (array[i].name.charAt(0).toUpperCase() === letter.toUpperCase()) {
             count += 1
             //else, keep count value
-        } else {
-            count; 
-        }
+        } 
 
     
 }
@@ -143,28 +170,89 @@ var firstLetterCount = function (array, letter) {
  */
 
 var friendFirstLetterCount = function (array, customer, letter) {
-  //do i add a for-nested loop?
-  var count = 0; 
-  for (let i = 0; i < array.length; i++) {
-      _.first(array[i], 1); 
-      for (let j = 0; j < customer.length; j++)
-          if (customer.friends[j].name.charAt(0).toUpperCase() === letter.toUpperCase()) {
-              count += 1;
-          } else {
-              count; 
-          }
-          
+    //creating variable to keep track of count of friends that have a name that start with given letter
+    var count = 0; 
+   
+    //looping through array to access given customer's object and accessing their friends
+   for (let i = 0; i < array.length; i++) {
+        if (array[i].name === customer && array[i].hasOwnProperty("friends")) {
+            var friendsArray = array[i].friends;
+        }
+    }
+    // looping through customer's friend list and counting how many friends' name that start with given letter 
+    for(let i = 0; i < friendsArray.length; i++) {
+        if (friendsArray[i].name.charAt(0).toUpperCase() === letter.toUpperCase()) { //case-insensitive
+            count += 1 // count increasing every time letter matches with first letter of their name 
+        }
+        count;
+    }
+    //returning final count 
+   return count;
 }
-return count; 
+
+    
+ 
+
+
+/**
+### 8: `friendsCount`
+ - **Objective**: Find the customers' names that have a given customer's name in their friends list
+ - **Input**: `Array` , `Name`
+ - **Output**: `Array`
+ - **Constraints**:
+ */
+
+ //Maybe, array is their friend's list 
+ //We need to see in each customer's object's friend's array if we find Olga 
+ 
+var friendsCount = function (array, name) {
+    //creating a new array to place who is friends with the given customer 
+    var namesArray = [];
+  //creating a for-loop to iterate through their friendlist 
+  for (var i = 0; i < array.length; i++) {
+    if (array[i].hasOwnProperty("friends")) {
+        var friendsList = array[i].friends;
+    }
+
+    for (let i = 0; i < friendsList.length; i++) {
+        if (friendsList[i].name === name) {
+            namesArray.push(array[i].name); 
+        }
+    }
+   console.log(namesArray);
+  }
+   //return a list of all the people's names that are friends with Olga 
+      
+return namesArray;
 };
 
+/*
+### 9: `topThreeTags`
+ - **Objective**: Find the three most common tags among all customers' associated tags
+ - **Input**: `Array`
+ - **Output**: `Array`
+ - **Constraints**:
+*/
+var topThreeTags =
 
-var friendsCount;
+/*
+### 10: `genderCount`
+ - **Objective**: Create a summary of genders, the output should be:
+```javascript
+{
+    male: 3,
+    female: 4,
+    non-binary: 1
+}
+```
+ - **Input**: `Array`
+ - **Output**: `Object`
+ - **Constraints**: Use `reduce`
 
-var topThreeTags;
+*/
+var genderCount =  function (array) {
+}
 
-
-var genderCount = 
 
 //////////////////////////////////////////////////////////////////////
 // DON'T REMOVE THIS CODE ////////////////////////////////////////////

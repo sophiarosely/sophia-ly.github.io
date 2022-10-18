@@ -46,23 +46,24 @@ var isEven = function(n) {
 // 5. Sum all integers below a given integer.
 // sumBelow(10); // 45
 // sumBelow(7); // 21
-var sumBelow = function(num, total = 0) {
-  //base case 
-    if (num === 0 ) {
-      return total; 
-    } 
-    //recursion 
-   if (total === 0) {
-    total += num - 1; 
-    //if number is negative, 
-   } else if (num < 0) {
-    total += num + 1
-    return sumBelow(num + 1, total);
-   }   
-   else {
-   total += num;
-   }
-   return sumBelow(num - 1 , total); 
+var sumBelow = function(number, total = 0) {
+    //base
+    //exit recursion if number is equal to zero
+    if (number === 0) {
+      return total;
+    }
+    //recursion
+    //if number is positive, total should subtract 1 to the input number
+    if (number > 0) {
+      total += (number - 1);
+      return sumBelow(number - 1, total);
+    }
+      //if number is negative, total should add 1 to the input number
+    if (number < 0) {
+      total += (number + 1);
+      return sumBelow(number + 1, total);
+    }
+  
 
 };
 
@@ -113,6 +114,12 @@ var reverse = function(string, output = "") {
 
 // 10. Write a function that determines if a string is a palindrome.
 var palindrome = function(string) {
+    //base 
+
+
+    //recursion 
+
+
 };
 
 // 11. Write a function that returns the remainder of x divided by y without using the

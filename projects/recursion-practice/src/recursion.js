@@ -39,26 +39,31 @@ var arraySum = function(array) {
 var isEven = function(n) { 
   if ((n / 2) * 2 == n) {
     return true;
-  } else {
-    return false;
-  }
+  } 
+  return false;
 };
 
 // 5. Sum all integers below a given integer.
 // sumBelow(10); // 45
 // sumBelow(7); // 21
-var sumBelow = function(n, total = 0) {
-     
- /* if (n === 1 || n === -1) {
-    return total;
+var sumBelow = function(num, total = 0) {
+  //base case 
+    if (num === 0 ) {
+      return total; 
+    } 
+    //recursion 
+   if (total === 0) {
+    total += num - 1; 
+    //if number is negative, 
+   } else if (num < 0) {
+    total += num + 1
+    return sumBelow(num + 1, total);
+   }   
+   else {
+   total += num;
    }
-   //if positive number
-else if (n > 0) {
-  return sumBelow((n - 1), (total + (n + n)));
-      //if negative number
-     } else (n < 0) {
-  return sumBelow((n + 1 ), (total + (n + 1)));
-  }*/
+   return sumBelow(num - 1 , total); 
+
 };
 
 
@@ -93,7 +98,17 @@ var powerOfTwo = function(n) {
 };
 
 // 9. Write a function that accepts a string a reverses it.
-var reverse = function(string) {
+var reverse = function(string, output = "") {
+  //base
+  //if there is an empty string left, return the reversed string 
+  if (string.length === 0) {
+  return output; 
+  } 
+  //recursion
+  //if there is no empty string, return the string in reverse 
+  output += string[string.length - 1]  
+  return reverse(string.slice(0, string.length - 1), output);
+
 };
 
 // 10. Write a function that determines if a string is a palindrome.

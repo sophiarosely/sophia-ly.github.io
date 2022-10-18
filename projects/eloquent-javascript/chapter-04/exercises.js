@@ -5,9 +5,15 @@
 function range(start, end, next) {
   var rangeArray = [];
   for (let i = start; i <= end; i++) {
+    //if start and end are the same numbers, return an empty array
     if (start === end || next < 0) {
       return rangeArray;
     }
+    //if next exists, add start and next 
+    if (typeof next === "number") {
+      start + next 
+    }
+    //next doesn't exist, just push like normal 
     rangeArray.push(i);
 }
 return rangeArray;
@@ -23,7 +29,6 @@ function sum(array) {
   if (array === emptyArray) {
     return 0;
   }
-  //if it's not an empty array, return the sum of the array
   return array.reduce((previous, current) => previous + current, 0);
 }
 
@@ -47,13 +52,11 @@ function reverseArray(array) {
 ////////////////////////////////////////////////////////////////////////////////
 
 function reverseArrayInPlace(array) {
-  /*
-  //using for-loop to alter original array 
-for (let i = array.length - 1; i < array; i-- ) {
-  var array = array[i];
-}
-return array;
-*/
+    //reversing an array in place 
+      array.reverse();
+      //returning reversed array 
+      return array;
+
 }
 
 ////////////////////////////////////////////////////////////////////////////////

@@ -19,26 +19,52 @@ var factorial = function(n) {
 
 // 2. Compute the sum of an array of integers.
 // Example:  sum([1, 2, 3, 4, 5, 6]);  // 21
-var sum = function(array) {
+var sum = function(array, total = 0) {
+  //if there is an empty array, return the accumulated total 
+  if (array.length === 0) {
+      return total;
+  //otherwise, the array will undergo recursion
+    } else {
+    return sum(array.slice(1), total + array[0]);
+          }
+
 };
 
-// 3. Sum all numbers in an array containing nested arrays.
+// 3. Sum all numbers in an array containing nested arrays. (Do not complete)
 // Example: arraySum([1,[2,3],[[4]],5]); // 15
 var arraySum = function(array) {
 };
 
 // 4. Check if a number is even.
-var isEven = function(n) {
+var isEven = function(n) { 
+  if ((n / 2) * 2 == n) {
+    return true;
+  } else {
+    return false;
+  }
 };
 
 // 5. Sum all integers below a given integer.
 // sumBelow(10); // 45
 // sumBelow(7); // 21
-var sumBelow = function(n) {
+var sumBelow = function(n, total = 0) {
+     
+ /* if (n === 1 || n === -1) {
+    return total;
+   }
+   //if positive number
+else if (n > 0) {
+  return sumBelow((n - 1), (total + (n + n)));
+      //if negative number
+     } else (n < 0) {
+  return sumBelow((n + 1 ), (total + (n + 1)));
+  }*/
 };
+
 
 // 6. Get the integers in range (x, y).
 // Example:  range(2, 9);  // [3, 4, 5, 6, 7, 8]
+
 var range = function(x, y) {
 };
 
@@ -48,6 +74,14 @@ var range = function(x, y) {
 // Example:  exponent(4,3);  // 64
 // https://www.khanacademy.org/computing/computer-science/algorithms/recursive-algorithms/a/computing-powers-of-a-number
 var exponent = function(base, exp) {
+          if (exp === 0) {  
+           return 1;
+          } else if (exp === 1) {
+            return base; 
+          } else if (exp < 0) {
+            return exponent()
+          }
+
 };
 
 // 8. Determine if a number is a power of two.
@@ -55,6 +89,7 @@ var exponent = function(base, exp) {
 // powerOfTwo(16); // true
 // powerOfTwo(10); // false
 var powerOfTwo = function(n) {
+
 };
 
 // 9. Write a function that accepts a string a reverses it.

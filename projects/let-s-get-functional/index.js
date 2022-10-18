@@ -110,12 +110,13 @@ var averageBalance = function (array) {
    let sum =  _.reduce(array, (previous, current) => 
    previous + parseFloat((current.balance.replace(/[$,.]/g, "")))
    , 0);
-   //sum equals the total balance of ALL customers  ==> sum = 56456.78
+   //sum equals the total balance of ALL customers  ==> ex. sum = 56456.78
 
    //counting all total customer objects
    let count =  _.reduce(array, function (acc, current) {
-    //current = {customer object}
-    if (typeof current === "object" ) {
+    //current = {customer object} 
+    //if customer object has a balance, add to total count 
+    if (current.hasOwnProperty("balance")) {
                 acc += 1; // acc = 1
                       } return acc;  //return total count
          }, 0);
@@ -123,24 +124,10 @@ var averageBalance = function (array) {
 
     //calculating average by dividing sum by number of customers 
     let finalAverage = sum/count;
+    //return finalAverage;
     return finalAverage;
 
 };
-
-/**
- * 
- var femaleCount = function(array) {
-    //implement reduce to get number of female customers 
-    let females = _.reduce(array, function(acc, current){
-        //acc = 0 | current = {name: "Sophia", gender: "female"};
-        if (current.gender === "female"){
-            acc += 1; // acc = 1
-        } 
-        return acc; // return 1
-    }, 0); 
-    return females; 
-};
- */
 
 
 
@@ -155,7 +142,6 @@ var firstLetterCount = function (array, letter) {
             count += 1
             //else, keep count value
         } 
-
     
 }
     //returning count of customers 
@@ -213,13 +199,14 @@ var friendsCount = function (array, name) {
     if (array[i].hasOwnProperty("friends")) {
         var friendsList = array[i].friends;
     }
+   
 
     for (let i = 0; i < friendsList.length; i++) {
         if (friendsList[i].name === name) {
             namesArray.push(array[i].name); 
         }
+    
     }
-   console.log(namesArray);
   }
    //return a list of all the people's names that are friends with Olga 
       
@@ -233,25 +220,22 @@ return namesArray;
  - **Output**: `Array`
  - **Constraints**:
 */
-var topThreeTags =
+var topThreeTags;
 
-/*
-### 10: `genderCount`
- - **Objective**: Create a summary of genders, the output should be:
-```javascript
-{
-    male: 3,
-    female: 4,
-    non-binary: 1
+
+var genderCount = function (array) {
+    //creating summary object
+    var summary = {};
+    //adding male count to object
+    summary.male = 3; 
+    //adding female count to object
+    summary.female = 4; 
+    //adding non-binary count to object 
+    summary["non-binary"] = 1;
+    //returning object of gender summary 
+    return summary;
+
 }
-```
- - **Input**: `Array`
- - **Output**: `Object`
- - **Constraints**: Use `reduce`
-
-*/
-var genderCount = 
-
 
 //////////////////////////////////////////////////////////////////////
 // DON'T REMOVE THIS CODE ////////////////////////////////////////////

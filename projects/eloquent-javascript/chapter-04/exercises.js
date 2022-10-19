@@ -64,14 +64,42 @@ function reverseArrayInPlace(array) {
 ////////////////////////////////////////////////////////////////////////////////
 
 function arrayToList(array) {
+    let rest = null; 
+
+    for (let i = array.length - 1; i >= 0; i--) {
+      // array[i] = 3 
+      rest = {value: array[i], rest: rest}
+    }
+return rest; 
 }
 
+// invoke arrayToList([1, 2, 3])
+  // rest = null 
+    // iterate backwards 
+      // 2
+        // rest = {value : 3, rest: null 
+          // 1 
+            // rest = {value : 2, rest: { value : 3, rest : null}
+              // 0 
+                // rest = {value: 1, rest: {value : 2}, rest: { value : 3, rest : null} }
+      
 ////////////////////////////////////////////////////////////////////////////////
 // listToArray /////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-function listToArray() {
+function listToArray(list, output = []) {
 
+    // base 
+    if (list.rest === null) {
+      output.push(list.value);
+      return output;
+    }
+    // recursion 
+      // push the list object's value at "value" into array 
+    output.push(list.value); // [1]
+    
+    // return recursive function call 
+    return listToArray(list.rest, output); 
 }
 
 ////////////////////////////////////////////////////////////////////////////////

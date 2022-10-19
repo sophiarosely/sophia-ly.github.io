@@ -192,27 +192,7 @@ var friendFirstLetterCount = function (array, customer, letter) {
  //We need to see in each customer's object's friend's array if we find Olga 
  
 var friendsCount = function (array, name) {
-    //creating a new array to place who is friends with the given customer 
-    var namesArray = [];
-  //creating a for-loop to iterate through their friendlist 
-  for (var i = 0; i < array.length; i++) {
-    if (array[i].hasOwnProperty("friends")) {
-        var friendsList = array[i].friends;
-    }
-   
-
-    for (let i = 0; i < friendsList.length; i++) {
-        if (friendsList[i].name === name) {
-            namesArray.push(array[i].name); 
-        }
-    
-    }
-  }
-   //return a list of all the people's names that are friends with Olga 
-      
-return namesArray;
-};
-
+}
 /*
 ### 9: `topThreeTags`
  - **Objective**: Find the three most common tags among all customers' associated tags

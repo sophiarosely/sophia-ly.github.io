@@ -37,10 +37,7 @@ var arraySum = function(array) {
 
 // 4. Check if a number is even.
 var isEven = function(n) { 
-  if ((n / 2) * 2 == n) {
-    return true;
-  } 
-  return false;
+  
 };
 
 // 5. Sum all integers below a given integer.
@@ -99,15 +96,14 @@ var range = function(x, y, output = []) {
 // 8^2 = 8 x 8 = 64.  Here, 8 is the base and 2 is the exponent.
 // Example:  exponent(4,3);  // 64
 // https://www.khanacademy.org/computing/computer-science/algorithms/recursive-algorithms/a/computing-powers-of-a-number
-var exponent = function(base, exp) {
+var exponent = function(base, exp, output = 0) {
           if (exp === 0) {  
            return 1;
-          } else if (exp === 1) {
-            return base; 
-          } else if (exp < 0) {
-            return exponent()
+          } if (exp < 0){
+            return base / exponent(base, exp + 1)
           }
-
+        return base * exponent(base, exp - 1);
+          
 };
 
 // 8. Determine if a number is a power of two.
@@ -302,7 +298,14 @@ var fibonacci = function(n) {
 // nthFibo(5); // 5
 // nthFibo(7); // 13
 // nthFibo(3); // 2
-var nthFibo = function(n) {
+var nthFibo = function(n, output = 0) {
+  //output will be the fibonacci number at the index 
+  // base 
+    if (array[0] === array[n]) {
+      return output; 
+    }
+    output += 
+    nthFibo(n - 1, output);
 };
 
 // 26. Given an array of words, return a new array containing each word capitalized.
@@ -351,7 +354,21 @@ var nestedEvenSum = function(obj) {
 
 // 29. Flatten an array containing nested arrays.
 // Example: flatten([1,[2],[3,[[4]]],5]); // [1,2,3,4,5]
-var flatten = function(arrays) {
+var flatten = function(array) {
+
+    //base
+    if (array.length === 0)  {
+      return output; 
+  }
+  //recursion
+if (typeof array[0] === "number") {
+  output.push(array[0]);
+}
+if (Array.isArray(array[0])) {
+  output.push(array[0].pop());
+}
+
+return flatten(array.slice(1), output);
 };
 
 // 30. Given a string, return an object containing tallies of each letter.
@@ -390,7 +407,21 @@ var augmentElements = function(array, aug) {
 // 33. Reduce a series of zeroes to a single 0.
 // minimizeZeroes([2,0,0,0,1,4]) // [2,0,1,4]
 // minimizeZeroes([2,0,0,0,1,0,0,4]) // [2,0,1,0,4]
-var minimizeZeroes = function(array) {
+var minimizeZeroes = function(array, output = []) {
+    
+  // base
+  if (array.length === 0) {
+    return output; 
+  }
+  // recursion 
+    // if the current item in the array is zero and the last value of output array is a zero, 
+    // then remove it from the array  
+  if (array[0] === 0 && output[output.length - 1] === 0) {
+             output.pop(array[0]);
+  }
+         output.push(array[0]);
+
+   return minimizeZeroes(array.slice(1), output);
 };
 
 // 34. Alternate the numbers in an array between positive and negative regardless of
@@ -398,7 +429,26 @@ var minimizeZeroes = function(array) {
 // alternateSign([2,7,8,3,1,4]) // [2,-7,8,-3,1,-4]
 // alternateSign([-2,-7,8,3,-1,4]) // [2,-7,8,-3,1,-4]
 var alternateSign = function(array) {
-};
+  
+    // base
+    if (array.length === 0) {
+      return output; 
+    }
+    // if output array has nothing, push postive number
+    if (output.length === 0) {
+      output.push(+array[0]);
+    }
+    // if output array's last value was negative, push a postive number
+    if (output[output.length - 1] < 0) {
+      output.push(array[0]);
+    }
+      // if output's array last value was positive, push  a negative number
+      else if (output[output.length - 1] > 0 ) {
+      output.push(-array[0]);
+      }
+    return alternateSign(array.slice(1), output);
+  };
+  
 
 // 35. Given a string, return a string with digits converted to their word equivalent.
 // Assume all numbers are single digits (less than 10).

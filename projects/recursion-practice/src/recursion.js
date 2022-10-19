@@ -71,7 +71,27 @@ var sumBelow = function(number, total = 0) {
 // 6. Get the integers in range (x, y).
 // Example:  range(2, 9);  // [3, 4, 5, 6, 7, 8]
 
-var range = function(x, y) {
+var range = function(x, y, output = []) {
+    //base
+      //recursion will stop in these instances 
+    if (x - y === 1 || x - y === -1 || x === y || x === (y - 1)) {
+    return output; 
+    }
+    //recursion
+      //if x is greater than y, subtract 1 to x 
+    if (x > y) {
+      //push the value into output
+      output.push((x - 1));
+       return range(x - 1, y, output);
+     }
+      //if -x is greater than -y, add 1 to x
+     if (-x > -y) {
+      //push the value into output
+      output.push((x + 1)); 
+        return range(x + 1, y, output);
+        
+      }
+  
 };
 
 // 7. Compute the exponent of a number.

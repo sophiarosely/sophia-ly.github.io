@@ -11,7 +11,7 @@ var factorial = function(n) {
     // if it's a negative number, return null 
   } else if (n < 0) {
     return null;
-    //if it's any other type of number, number will undergo recursion
+    //if it's any other type of number, number will undergo recursion until base case is met 
   } else {
     return  n * factorial(n - 1);
   }
@@ -23,7 +23,7 @@ var sum = function(array, total = 0) {
   //if there is an empty array, return the accumulated total 
   if (array.length === 0) {
       return total;
-  //otherwise, the array will undergo recursion
+  //otherwise, the array will undergo recursion until base case is met 
     } else {
     return sum(array.slice(1), total + array[0]);
           }
@@ -233,13 +233,36 @@ var reverseArr = function (array, output = []) {
 // 18. Create a new array with a given value and length.
 // buildList(0,5) // [0,0,0,0,0]
 // buildList(7,3) // [7,7,7]
-var buildList = function(value, length) {
+var buildList = function(value, length, output = []) {
+      //base
+      //if output's length is the same length as length, return output array 
+      if (output.length === length) {
+        return output;
+      }
+  
+     //recursion
+      output.push(value);
+      return buildList(value, length, output);
+  
 };
 
 // 19. Count the occurence of a value inside a list.
 // countOccurrence([2,7,4,4,1,4], 4) // 3
 // countOccurrence([2,'banana',4,4,1,'banana'], 'banana') // 2
-var countOccurrence = function(array, value) {
+var countOccurrence = function(array, value, count = 0) {
+      //base
+         //if array is empty, return the final count of occurrences
+      if (array.length === 0) {
+            return count; 
+      }
+      //recursion
+        //if the current index of the array is equal to the value, increase the count
+     if (array[0] === value) {
+           count += 1; 
+    }
+    //invoking countOccurrence again to restart recursive process until base is met
+    return countOccurrence(array.slice(1), value, count);
+
 };
 
 // 20. Write a recursive version of map.

@@ -108,8 +108,9 @@ var youngestCustomer = function (array) {
 var averageBalance = function (array) {
 
    let sum =  _.reduce(array, (previous, current) => 
-   previous + parseFloat((current.balance.replace(/[$,.]/g, "")))
+   previous + parseFloat((current.balance.replace(/[$,]/g, "")))
    , 0);
+   console.log(sum);
    //sum equals the total balance of ALL customers  ==> ex. sum = 56456.78
 
    //counting all total customer objects

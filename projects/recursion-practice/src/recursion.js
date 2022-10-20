@@ -428,7 +428,7 @@ var minimizeZeroes = function(array, output = []) {
 // their original sign.  The first number in the index always needs to be positive.
 // alternateSign([2,7,8,3,1,4]) // [2,-7,8,-3,1,-4]
 // alternateSign([-2,-7,8,3,-1,4]) // [2,-7,8,-3,1,-4]
-var alternateSign = function(array) {
+var alternateSign = function(array, output = []) {
   
     // base
     if (array.length === 0) {
@@ -453,7 +453,52 @@ var alternateSign = function(array) {
 // 35. Given a string, return a string with digits converted to their word equivalent.
 // Assume all numbers are single digits (less than 10).
 // numToText("I have 5 dogs and 6 ponies"); // "I have five dogs and six ponies"
-var numToText = function(str) {
+  var numToText = function(str, output = "") {
+    
+    // base
+    // if string is empty, return the output
+    if (str.length === 0) {
+      return output; 
+    }
+    //recursion
+      /* if the current value in the string is equal to any of these number values, add their 
+      string version to "output" instead */
+    if (str[0] === "0" ) {
+      output += "zero"
+    }
+    else if (str[0] === "1" ) {
+       output += "one"
+    }
+    else if (str[0] === "2" ) {
+        output += "two"
+    }
+    else if (str[0] === "3" ) {
+        output += "three"
+    }
+    else if (str[0] === "4" ) {
+       output += "four"
+    }
+    else if (str[0] === "5" ) {
+          output += "five"
+    }
+    else if (str[0] === "6") {
+       output += "six"
+    }
+    else if (str[0] === "7" ) {
+       output += "seven"
+    }
+    else if (str[0] === "8" ) {
+         output += "eight";
+    }
+       else if (str[0] === "9" ) {
+         output += "nine";
+       }
+    else {output += str[0]; 
+         }
+         //continue recursion until base case is met 
+    return numToText(str.slice(1), output);
+  
+    
 };
 
 // *** EXTRA CREDIT ***

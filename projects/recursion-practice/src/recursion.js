@@ -36,7 +36,24 @@ var arraySum = function(array) {
 };
 
 // 4. Check if a number is even.
-var isEven = function(n) { 
+var isEven = function(num) { 
+  // if number is zero, returning true 
+    if (num === 0) {
+      return true; 
+  }
+    // if number is 1, return false
+     if (num === 1) {
+     return false; 
+   } 
+      // else if, num is greater than 1, return recursion of num - 2
+      else if (num > 1) { 
+      return isEven(num - 2);
+    }
+       // else if, num is greater than 1, return recursion of -num
+       else if (num < 1) {
+      return isEven(-num)
+    }
+
   
 };
 
@@ -96,13 +113,12 @@ var range = function(x, y, output = []) {
 // 8^2 = 8 x 8 = 64.  Here, 8 is the base and 2 is the exponent.
 // Example:  exponent(4,3);  // 64
 // https://www.khanacademy.org/computing/computer-science/algorithms/recursive-algorithms/a/computing-powers-of-a-number
-var exponent = function(base, exp, output = 0) {
-          if (exp === 0) {  
-           return 1;
-          } if (exp < 0){
-            return base / exponent(base, exp + 1)
-          }
-        return base * exponent(base, exp - 1);
+var exponent = function(base, exp) {
+  if (exp === 0) {
+    return 1;
+  } else {
+    return base * exponent(base, exp - 1);
+  }
           
 };
 
@@ -151,13 +167,15 @@ var modulo = function(x, y) {
 // JavaScript's Math object.
 // ATTENTION DO NOT LEAVE COMMENTS IN THIS FUNCTION OR DIVIDE BELOW. The test is looking for any ('/').
 var multiply = function(x, y, output = 0) {
-    /*//base
-    if (y === 0)
+    // base
+    if (y <= 0) {
       return output;
+    }
+    output += x
+    // recursion 
+
+  return multiply(x, y - 1, output);
   
-    (output = output + x) 
-   return  multiply(x, y - 1, output); 
-   */
 };
 
 // 13. Write a function that divides two numbers without using the / operator  or
@@ -189,10 +207,10 @@ var compareStr = function(str1, str2) {
     if (str1[0] !== str2[0]) {
       return false;
     }
-    if (str1[0] === str2[0]) {
-     return compareStr(str1.slice(1), str2.slice(1));
+    if  (str1[0] === str2[0]) {
+     return true;
     }
-    
+    return compareStr(str1.slice(1), str2.slice(1));
 };
 
 // 16. Write a function that accepts a string and creates an array where each letter
@@ -298,14 +316,13 @@ var fibonacci = function(n) {
 // nthFibo(5); // 5
 // nthFibo(7); // 13
 // nthFibo(3); // 2
-var nthFibo = function(n, output = 0) {
+var nthFibo = function(n) {
   //output will be the fibonacci number at the index 
   // base 
-    if (array[0] === array[n]) {
-      return output; 
-    }
-    output += 
-    nthFibo(n - 1, output);
+  if (n < 2){
+   return null;
+  }
+  return nthFibo(n-1) + nthFibo(n-2);
 };
 
 // 26. Given an array of words, return a new array containing each word capitalized.
@@ -373,7 +390,22 @@ return flatten(array.slice(1), output);
 
 // 30. Given a string, return an object containing tallies of each letter.
 // letterTally('potato'); // {'p':1, 'o':2, 't':2, 'a':1}
-var letterTally = function(str, obj) {
+var letterTally = function(str, obj = {}) {
+
+    // base
+    // if string is empty, return object 
+  if (str.length === 0) {
+    return obj;
+    // if the  object has the property, increase the value by 1
+  } else if (obj[str[0]]) {
+    obj[str[0]] ++;
+    // if the object does not have a property, value equals to 1
+  } else {
+    obj[str[0]] = 1;
+  }
+  //continue recursion until base case is met 
+  return letterTally(str.slice(1), obj);
+
 };
 
 // 31. Eliminate consecutive duplicates in a list.  If the list contains repeated

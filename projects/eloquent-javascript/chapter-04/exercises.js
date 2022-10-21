@@ -26,7 +26,7 @@ function range(start, end, step) {
         rangeArray.push(i);
       }    
     }
-    //returning final range array 
+    //returning final range array
     return rangeArray;
   }
 

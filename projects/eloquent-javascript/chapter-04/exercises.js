@@ -2,22 +2,34 @@
 // range ///////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-function range(start, end, next) {
+function range(start, end, step) {
   var rangeArray = [];
-  for (let i = start; i <= end; i++) {
-    //if start and end are the same numbers, return an empty array
-    if (start === end || next < 0) {
-      return rangeArray;
+  //if start and end are the same values, return an empty array 
+  if (start === end) {
+    return rangeArray;
+  }
+  //if step is a positive number, increment by given step value 
+    if(step > 0){
+      for (var i = start; i <= end; i += step) {
+        rangeArray.push(i);
+      }
     }
-    //if next exists, add start and next 
-    if (typeof next === "number") {
-      start + next 
+    // if step is a negative number, we are going to increment until we are greater than our negative step value
+    else if (step < 0) {
+      for (var i = start; i >= end; i += step){
+        rangeArray.push(i);
+      }
     }
-    //next doesn't exist, just push like normal 
-    rangeArray.push(i);
-}
-return rangeArray;
-}
+    //if there is no step, push values in normally
+    else {
+       for(var i = start; i <= end; i++){
+        rangeArray.push(i);
+      }    
+    }
+    //returning final range array 
+    return rangeArray;
+  }
+
 
 ////////////////////////////////////////////////////////////////////////////////
 // sum /////////////////////////////////////////////////////////////////////////
@@ -105,16 +117,37 @@ function listToArray(list, output = []) {
 ////////////////////////////////////////////////////////////////////////////////
 // prepend /////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
+/*
+Then add a helper function prepend, which
+takes an element and a list and creates a new list that adds the element to the
+front of the input list, and nth, which takes a list and a number and returns
+the element at the given position in the list (with zero referring to the first
+element) or undefined when there is no such element.
+If you haven’t already, also write a recursive version of nth.
+*/
+function prepend(value, list) {
+  //taking value and list and creating new list that adds value to the front of input list 
+  return {value, rest: list};  
+ }
 
-function prepend() {
-
-}
 
 ////////////////////////////////////////////////////////////////////////////////
 // nth /////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-function nth() {
+function nth(list, number) {
+
+  //if not a list, return undefined
+    if (!list) {
+      return undefined;
+    }
+    // if number is zero, return first element of the value 
+    else if (number == 0)
+      return list.value;
+    else
+    //continue recursion until number equals zero 
+      return nth(list.rest, number - 1);
+
 
 }
 

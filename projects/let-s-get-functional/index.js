@@ -189,11 +189,14 @@ var friendFirstLetterCount = function (array, customer, letter) {
  - **Constraints**:
  */
 
- //Maybe, array is their friend's list 
- //We need to see in each customer's object's friend's array if we find Olga 
+
  
-var friendsCount = function (array, name) {
-}
+ var friendsCount = function (array, name) {
+
+
+
+};
+
 /*
 ### 9: `topThreeTags`
  - **Objective**: Find the three most common tags among all customers' associated tags
@@ -201,7 +204,19 @@ var friendsCount = function (array, name) {
  - **Output**: `Array`
  - **Constraints**:
 */
-var topThreeTags;
+var topThreeTags = function (array) {
+
+    // combining all tags together into one single array to sort 
+let tagArray = _.reduce(array, (acc, current) => {
+    if (Array.isArray(current.tags) === true) {
+      //adding all tags together 
+     acc = acc.concat(current.tags); 
+    }
+  return acc; 
+}, []);
+
+
+};
 
 
 var genderCount = function (array) {

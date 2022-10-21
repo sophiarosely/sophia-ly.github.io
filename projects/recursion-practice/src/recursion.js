@@ -114,12 +114,21 @@ var range = function(x, y, output = []) {
 // Example:  exponent(4,3);  // 64
 // https://www.khanacademy.org/computing/computer-science/algorithms/recursive-algorithms/a/computing-powers-of-a-number
 var exponent = function(base, exp) {
+  //if exponent is one, base will return 
+    if (exp === 1) {
+    return base;
+  }
+  //an exponent of zero equals to 1
   if (exp === 0) {
     return 1;
-  } else {
-    return base * exponent(base, exp - 1);
   }
-          
+  //if exponent is negative, convert exponent to positive value then divide base * exponent(base, exp - 1)
+  if (exp < 0) {
+    exp *= -1;
+    return 1 / (base * exponent(base, exp - 1))
+  }
+  //else, continue recursion until base case is met 
+  return base * exponent(base, exp-1)   
 };
 
 // 8. Determine if a number is a power of two.
@@ -135,7 +144,7 @@ var powerOfTwo = function(n) {
     return false;
   }
   //continuing recursion until base is met 
-  return powerOfTwo(n/2);
+  return powerOfTwo(n / 2);
 };
 
 
@@ -156,20 +165,18 @@ var reverse = function(string, output = "") {
 
 // 10. Write a function that determines if a string is a palindrome.
 var palindrome = function(string) {
-    //base 
-      // if the string's length is 1, this mean it's a palindrome 
-    if(string.length === 1) {
-      return true;
-    }
-      // if the string's length is 2, return current value in string to equal next value in string
-    if(string.length === 2){ 
-      return str[0] === str[1];
-    }
-      // continue recursion until base case is met
-    if(string[0] === string.slice(-1)) {
-      return palindrome(string.slice(1,-1));
-    }
-    return false;
+  // palindrome => racecar
+  // capital letters and characters are ignored, therefore, the string is converted into a string without lowercase and no characters
+    string = string.replace(/\s/g, '').toLowerCase()
+  // base case: if string is empty, the string was a palindrome 
+     if (string.length === 0) {
+     return true;
+  } 
+  //continue recursion until base case is met
+  if (string[string.length-1] === string[0]) {
+    return palindrome(string.slice(1, string.length-1));
+  }
+  return false;
 
 };
 
@@ -185,16 +192,18 @@ var modulo = function(x, y) {
 // JavaScript's Math object.
 // ATTENTION DO NOT LEAVE COMMENTS IN THIS FUNCTION OR DIVIDE BELOW. The test is looking for any ('/').
 var multiply = function(x, y, output = 0) {
-    // base
-    if (y <= 0) {
-      return output;
-    }
+    if (y === 0) {
+    return output;
+  }
     output += x
-    // recursion 
 
-  return multiply(x, y - 1, output);
-  
+if (y < 0 && x < 0) {
+ return multiply(-x, -y + 1, output);
+}
+return multiply(x, y - 1, output);
+
 };
+
 
 // 13. Write a function that divides two numbers without using the / operator  or
 // JavaScript's Math object.
@@ -300,6 +309,10 @@ var countOccurrence = function(array, value, count = 0) {
 // 20. Write a recursive version of map.
 // rMap([1,2,3], timesTwo); // [2,4,6]
 var rMap = function(array, callback) {
+  if (array.length === 1) {
+    return callback(array[0]);
+  }
+  return [callback(array[0])].concat(rMap(array.slice(1), callback))
 };
 
 // 21. Write a function that counts the number of times a key occurs in an object.
@@ -336,10 +349,19 @@ var fibonacci = function(n) {
 // nthFibo(3); // 2
 var nthFibo = function(n) {
   //output will be the fibonacci number at the index 
-  // base 
+  // base case 
+    //if number is zero, return 0
+  if (n === 0) {
+    return 0;
+    //if number is 1, return 1
+  } if (n === 1) {
+    return 1; 
+  }
+    // if number is negative, return null
   if (n < 2){
    return null;
   }
+  //continuing recursion until base case is met
   return nthFibo(n-1) + nthFibo(n-2);
 };
 
@@ -390,7 +412,7 @@ var nestedEvenSum = function(obj) {
 // 29. Flatten an array containing nested arrays.
 // Example: flatten([1,[2],[3,[[4]]],5]); // [1,2,3,4,5]
 var flatten = function(array) {
-
+//not apart of assignment, attempted on accident
     //base
     if (array.length === 0)  {
       return output; 
@@ -480,24 +502,26 @@ var minimizeZeroes = function(array, output = []) {
 // alternateSign([-2,-7,8,3,-1,4]) // [2,-7,8,-3,1,-4]
 var alternateSign = function(array, output = []) {
   
-    // base
+    // base case: if array is empty, return final output array 
     if (array.length === 0) {
       return output; 
     }
-    // if output array has nothing, push postive number
-    if (output.length === 0) {
-      output.push(+array[0]);
-    }
-    // if output array's last value was negative, push a postive number
-    if (output[output.length - 1] < 0) {
-      output.push(array[0]);
-    }
-      // if output's array last value was positive, push  a negative number
-      else if (output[output.length - 1] > 0 ) {
-      output.push(-array[0]);
-      }
+  //if output is empty, always enter a positive number first 
+  if (output.length === 0 || output[output.length - 1] < 0) {
+    output.push(Math.abs(array[0]));
+  }
+  // if the last value in the output array is positive, then push a negative number
+  else if (output[output.length - 1] > 0 ) {
+    output.push(-Math.abs(array[0])); 
+  }
+  //if the last value in the output array is negative, then push a positive number 
+   else if (output[output.length - 1] > 0 ) {
+    output.push(Math.abs(array[0])); 
+  }
+  //continue recursion until base case is met 
     return alternateSign(array.slice(1), output);
   };
+
   
 
 // 35. Given a string, return a string with digits converted to their word equivalent.
@@ -567,8 +591,17 @@ var binarySearch = function(array, target, min, max) {
 // 38. Write a merge sort function.
 // Sample array:  [34,7,23,32,5,62]
 // Sample output: [5,7,23,32,34,62]
-var mergeSort = function(array) {
-};
+var mergeSort = function(array, output = []) {
+  // base case => if array is empty, then sort output array from least to greatest 
+    if (array.length === 0) {
+      return output.sort((a, b) => a - b); 
+    }
+    //push every value from given array into output 
+    output.push(array[0]);
+    //continue recursion until every array value from input is into output 
+    return mergeSort(array.slice(1), output);
+    
+  };
 
 
 

@@ -134,9 +134,31 @@ But you have to take one silly exception into account: because of a historical
 accident, typeof null also produces "object".
 */
 
-/*if (value1 === value2 && value1 !=== null && value2 !== null  ) {
-*/
+  // determine if value1 and value2 are not objects 
+  if (typeof value1 !== "object" && typeof value2 !== "object") {
+  return value1 === value2; 
 }
+  // determine if either x or y is not an object b/c if one is string and object, then false
+  if (typeof value1 !== "object" || typeof value2 !== "object") {
+    return false; 
+  }
+  // if above statements did not execute, then that means value1 and value 2 are both complex data types
+  // create arrays of each object's keys 
+  let value1Keys = Object.keys(value1); // ["a", "b"];
+  let value2Keys = Object.keys(value2); // ["a", "b"];
+  // check if the lengths are different 
+  if (value1Keys.length !== value2Keys.length) {
+    return false; 
+  }
+  //if both arrays have same number of properties, we have to iterate through arrays
+  for (let i = 0; i < value1Keys.length; i++) {
+    if (!value2Keys.includes(value1Keys[i]) || !deepEqual(value1[value1Keys[i]],value2[value1Keys[i]])) {
+      return false; 
+    }
+  }
+  return true;
+}
+
 
 
 ////////////////////////////////////////////////////////////////////////////////

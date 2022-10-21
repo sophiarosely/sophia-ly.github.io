@@ -2,9 +2,21 @@
 // flatten /////////////////////////////////////////////////////////////////////
 // /////////////////////////////////////////////////////////////////////////////
 
-function flatten() {
+function flatten(array) {
+  // example: [[hey], [hello], [hi]];
+  
+  // using reduce method to combine each array value into one final array 
+  let flattened = array.reduce((acc, current) => {
+    //if the current value in the array is an array, using concat to add the current value to the accumulated array
+  if (Array.isArray(current) === true) {
+    acc = acc.concat(current);
+  }
+  return acc;
+ }, []);
+ //returning flattened array 
+    return flattened;
+  }
 
-}
 
 // /////////////////////////////////////////////////////////////////////////////
 // loop ////////////////////////////////////////////////////////////////////////

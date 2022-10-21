@@ -192,10 +192,29 @@ var friendFirstLetterCount = function (array, customer, letter) {
 
  
  var friendsCount = function (array, name) {
+//filtering through each customer object and returning each customer's object if it's true 
+  /*
+var filtered = _.filter(array, function(obj) {
+    for (var i = 0; i < obj.friends.length; i++) {
+        //this is accessing each customer's friend array 
+        if (obj.friends[i].name === name) {
+            return obj;
+        }
+    }
+});
 
+ console.log(filtered);
+ /*_.map(filtered, (obj) => {
+   obj.name; 
+ });
+
+ */
 
 
 };
+
+
+
 
 /*
 ### 9: `topThreeTags`
@@ -215,8 +234,29 @@ let tagArray = _.reduce(array, (acc, current) => {
   return acc; 
 }, []);
 
+//console.log(tagArray); 
+// array named tag includes every tag from every customer 
+// using reduce function to create an object with each tag and their count of occurrence
+let newObj = _.reduce(tagArray, (acc, current) => {
+    if (!acc.hasOwnProperty(current)) {
+        acc[current] = 1; 
+    } else {
+        acc[current]++; 
+    }
+    return acc; 
+}, {});
+console.log(newObj);
+
+for (var key in newObj) {
+    let newArray = [];
+    if (newObj[key] > 2) {
+        newArray.push(key);
+    }
+    console.log(newArray); 
+}
 
 };
+
 
 
 var genderCount = function (array) {

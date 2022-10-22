@@ -22,9 +22,17 @@ function flatten(array) {
 // loop ////////////////////////////////////////////////////////////////////////
 // /////////////////////////////////////////////////////////////////////////////
 
-function loop() {
-
+//  function takes a: value, test function, update function, and body function
+function loop(value, test, update, body) {
+  // start is the current loop value; each iteration test function runs on current loop value; update
+  // creates a new value from itself 
+  for (let start = value; test(value); value = update(value)) {
+    // the body function that gives the current value 
+    body(value);
+  }
 }
+    
+
 
 // /////////////////////////////////////////////////////////////////////////////
 // every ///////////////////////////////////////////////////////////////////////

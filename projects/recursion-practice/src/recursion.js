@@ -224,17 +224,17 @@ var gcd = function(x, y) {
 // compareStr('', '') // true
 // compareStr('tomato', 'tomato') // true
 var compareStr = function(str1, str2) {
+
   //base 
-  if (str1.length > str2.length || str1.length < str2.length) {
-    return false; 
-  }
+  // if both strings are different lengths, it will return false 
+  if (str1.length === 0 && str2.length >= 1 || str1.length >= 1 && str2.length === 0)  {
+    return false;
+   }
+   // if each character in the string equal to each other, it will return true
   if (str1.length === 0 || str2.length === 0) {
     return true; 
   }
-  if (str1[0] !== str2[0]) {
-    return false;
-  }
-
+  //continuing recursion until base cases are met 
   return compareStr(str1.slice(1), str2.slice(1));
 };
 

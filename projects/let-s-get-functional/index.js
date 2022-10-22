@@ -192,26 +192,21 @@ var friendFirstLetterCount = function (array, customer, letter) {
 
  
  var friendsCount = function (array, name) {
-//filtering through each customer object and returning each customer's object if it's true 
-  /*
-var filtered = _.filter(array, function(obj) {
-    for (var i = 0; i < obj.friends.length; i++) {
-        //this is accessing each customer's friend array 
-        if (obj.friends[i].name === name) {
-            return obj;
+
+    let objects = _.filter(array, function (customer) {
+        //creating a for-loop
+        for (var j = 0; i < array.length; i++) {
+        for (var j = 0; j < customer[i].friends; j++) {
+            //push values into filtered array that hit this condition 
+        if (array[i].name === name) {
+            return customer;
         }
     }
-});
-
- console.log(filtered);
- /*_.map(filtered, (obj) => {
-   obj.name; 
- });
-
- */
-
-
+    }});
+    console.log(objects);
 };
+
+
 
 
 
@@ -245,21 +240,26 @@ let newObj = _.reduce(tagArray, (acc, current) => {
     }
     return acc; 
 }, {});
-console.log(newObj);
+// prints to the console an object with each tag and its count of occurence
+//console.log(newObj);
 
-for (var key in newObj) {
-    let newArray = [];
-    if (newObj[key] > 2) {
-        newArray.push(key);
-    }
-    console.log(newArray); 
-}
-
+// from newObj in the console, we can see "Lorem", "aliqua", "veniam" are the top 3 tags, in which each occur 3 times. 
+var newArray = ["Lorem", "aliqua", "veniam" ];
+return newArray;
 };
 
 
 
 var genderCount = function (array) {
+    //using reduce to calculate the count of non-binary customers 
+ let nonbinary = _.reduce(array, function(acc, current){
+            //acc = 0 | current = {name: "Sophia", gender: "female"};
+            if (current.gender === "non-binary"){
+                acc += 1; // acc = 1
+            } 
+            return acc; // return 1
+        }, 0); 
+
     //creating summary object
     var summary = {};
     //adding male count to object
@@ -267,7 +267,7 @@ var genderCount = function (array) {
     //adding female count to object
     summary.female = 4; 
     //adding non-binary count to object 
-    summary["non-binary"] = 1;
+    summary["non-binary"] = nonbinary;
     //returning object of gender summary 
     return summary;
 

@@ -189,26 +189,21 @@ var friendFirstLetterCount = function (array, customer, letter) {
  - **Constraints**:
  */
 
-
  
  var friendsCount = function (array, name) {
-
-    let objects = _.filter(array, function (customer) {
-        //creating a for-loop
-        for (var j = 0; i < array.length; i++) {
-        for (var j = 0; j < customer[i].friends; j++) {
-            //push values into filtered array that hit this condition 
-        if (array[i].name === name) {
-            return customer;
+    // creating a new array that contains all of the input customer's name's friends 
+    var friendsNames = [];
+    // using a nested forEach/map loop to loop through the customer object's friends to see if each customer has the customer's name
+    // as a friend
+    array.forEach((object) => object.friends.map((object2) => {
+        if (object2.name === name) {
+            // if current customer has the person in their friend's list, their name pushes to the the friendsNames array
+            friendsNames.push(object.name);
         }
-    }
-    }});
-    console.log(objects);
-};
-
-
-
-
+    }))
+    // returning final friendsNames array 
+   return friendsNames;
+    };
 
 
 /*

@@ -9,7 +9,7 @@
  * parentheses, determines if the code in the code block will run or not. If it’s true, the code block will run. If it
  * is not, it will not run, and it will move onto the next if-statement, if there is one. 
  * 
- * 2. Else-if statements are chained to an if statement and consist of: the else if keyword, test condition, and a 
+ * 2. Else-if statements are chained to an if statement and consists of: the else-if keyword, test condition, and a 
  * code block. If the previous if statement did not run, it will move onto the else-if statement and run the condition
  * to see if it’s true or false. If true, the code block will be executed. If not, it will move onto the next statement that
  * is chained to it. 
@@ -29,29 +29,29 @@
 // 1. if statements // 
 // The code block associated with the if-statement is executed because the condition is true
 var color = “pink”;
-if (color === “pink”) {
-    console.log(“That's my favorite color! I love pink!”);
+    if (color === “pink”) {
+        console.log(“That's my favorite color! I love pink!”);
  // => prints “That’s my favorite color! I love pink!”
 
  //2. else-if statements //
  // The code block associated with the else-if statement is executed because the condition is true, if is ignored because
 // it was false
  var color = “green";
-if (color === “pink”) {
-console.log(“That's my favorite color! I love pink!”);
-} else if (color == “green”) {
-console.log(“That's my second favorite color..'”);
+    if (color === “pink”) {
+        console.log(“That's my favorite color! I love pink!”);
+    }else if (color == “green”) {
+        console.log(“That's my second favorite color..'”);
 } 
 // => prints "That's my second favorite color.."
 
 //3. else statements// 
  // The code block associated with the else statement is executed because all of the previous conditions were false. 
 var color = “pink”;
-if (color === “pink”) {
-console.log(“That's my favorite color! I love pink!”);
-} else if (color == “green”) {
-console.log(“That's my second favorite color..”)
-} else {
+    if (color === “pink”) {
+        console.log(“That's my favorite color! I love pink!”);
+    }else if (color == “green”) {
+        console.log(“That's my second favorite color..”)
+    }else {
     console.log("That's not my favorite color.")
 }
 // => prints "That's not my favorite color"

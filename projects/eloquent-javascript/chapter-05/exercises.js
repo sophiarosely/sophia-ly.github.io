@@ -11,8 +11,7 @@ function flatten(array) {
   if (Array.isArray(current) === true) {
     acc = acc.concat(current);
   }
-  return acc;
- }, []);
+  return acc; }, []);
  //returning flattened array 
     return flattened;
   }
@@ -25,7 +24,7 @@ function flatten(array) {
 //  function takes a: value, test function, update function, and body function
 function loop(value, test, update, body) {
   // start is the current loop value; each iteration test function runs on current loop value; update
-  // creates a new value from itself 
+  // create a new value from itself 
   for (let start = value; test(value); value = update(value)) {
     // the body function that gives the current value 
     body(value);
@@ -44,7 +43,6 @@ function loop(value, test, update, body) {
             return false;
         }
     }
-
     return true;
 }
 
@@ -53,8 +51,28 @@ function loop(value, test, update, body) {
 // dominantDirection ///////////////////////////////////////////////////////////
 // /////////////////////////////////////////////////////////////////////////////
 
-function dominantDirection() {
+function dominantDirection(string) {
+//  create two arrays to store occurences of ltr and rtl
+  let ltr = [];
+  let rtl = [];
+  // iterate through the input string
+  for (let i = 0; i < string.length; i++) {
+    // string [i] = "H"
+    let script = characterScript(string.charCodeAt(i));
 
+    if (script !== null) {
+      if (script.direction === "ltr") {
+        ltr.push(script);
+      } else {
+        rtl.push(script);
+      }
+    }
+  }
+        if (ltr.length > rtl.length){
+          return "ltr";
+        } else {
+          return "rtl";
+        }
 }
 
 // /////////////////////////////////////////////////////////////////////////////

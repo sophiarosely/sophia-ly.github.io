@@ -16,7 +16,7 @@
  * allows us to store a list of values of any data type and store them as one variable. You can access 
  * an array through its indexes. 
  * 
- * 5. Objects are also a complex data type and a collection. However, they are not zero-indexed like arrays. Objects
+ * 5. Objects are also a complex data type and a collection. However, they are not zero-indexed, like arrays. Objects
  * do not have order nor do they have indexes. Objects contain key-value pairs, which are known as properties. You can 
  * access an object through its properties. 
  * 
@@ -51,32 +51,32 @@
 
 // 1. numbers //
 // Numbers can be negative, positive, or a decimal value. 
-0.5; 
-222; 
--78;  
+  0.5; 
+  222; 
+  -78;  
 
 // 2. strings //
 // Strings are a string of characters between two quotation marks or two single quotes. My variable diaryEntry contains a string. 
-var diaryEntry = “I miss New York, but not the cold winters. “;
+    var diaryEntry = “I miss New York, but not the cold winters. “;
 
 // 3. booleans //
 // Booleans result in true or false. My variables notTrue and notFalse both carry booleans. 
 
 //false
 var notTrue = !true;
-console.log(notTrue);
+  console.log(notTrue);
 // => prints false
 
 //true
 var notFalse = !false ;
-console.log(notFalse);
+  console.log(notFalse);
 // => prints true 
 
 // 4. arrays //
 //An array listing values of my favorite movies, stored in the variable faveMovies.
 var faveMovies = ["Romy and Michele's High School Reunion", "Spirited Away", "Kill Bill", "Napoleon Dynamite"]; 
-console.log(faveMovies);
-/*=> prints [
+  console.log(faveMovies);
+/* => prints [
   "Romy and Michele's High School Reunion",
   'Spirited Away',
   'Kill Bill',
@@ -94,45 +94,45 @@ console.log(faveMovies);
 // An object with properties (key-value pairs), stored in the variable mySelf 
 let mySelf = {firstName: "Sophia", middleName: "Rose", lastName: 
 "Ly", DOB: "02/03/1999" };
-console.log(mySelf); 
-/* => prints 
+  console.log(mySelf); 
+  /* => prints 
 {
   firstName: 'Sophia',
   middleName: 'Rose',
   lastName: 'Ly',
   DOB: '02/03/1999'
 }
-*/
+  */
 
 // 6. functions // 
 //A function, called sum, where it is being declared (defined) and called (executed). 
 //function declaration 
-function sum (num1, num2) {
-var sum = num1 + num2; 
-return sum;
-}
+  function sum (num1, num2) {
+    var sum = num1 + num2; 
+    return sum;
+  } 
 
 //function call 
-console.log(sum(1,2));  // prints out => 3
+  console.log(sum(1,2));  // prints out => 3
 
 // 7. undefined //
 //A variable that is being declared and when logged to the console, the variable logs as undefined because the variable is not pointing to any value. 
-let mySchool; 
-console.log(mySchool); // => prints undefined 
+  let mySchool; 
+    console.log(mySchool); // => prints undefined 
 
 //8. null // 
 //Code prints as null 
-const foo = null;
-console.log(foo); // => prints null 
+  const foo = null;
+    console.log(foo); // => prints null 
 
 // 9. NaN // 
 //Using a function that results in a product of two numbers, inputting two strings will result in NaN because strings are not recognized as numbers 
 
 //function declaration 
-function product (num1, num2) {
-var product = num1 * num2; 
-return product;
-}
+  function product (num1, num2) {
+    var product = num1 * num2; 
+    return product;
+  }
 
 //function call 
 console.log(product("Sophia", "Ly"));  // prints out => NaN
@@ -140,32 +140,31 @@ console.log(product("Sophia", "Ly"));  // prints out => NaN
 //10. infinity and -infinity // 
 //infinity 
 //Setting the variable y to equal a number higher than the Javascript limit of a number 
-let x = 1.797693134862315E+308;
-let y = x * 1.001;
-console.log(y); // => prints  Infinity
+  let x = 1.797693134862315E+308;
+  let y = x * 1.001;
+    console.log(y); // => prints  Infinity
 
 //-infinity 
 //Setting the variable y to equal a number lower than the Javascript limit of a number 
-let x = -1.797693134862316E+308;
-let y = x * 1.001;
-console.log(y);  // => prints -Infinity 
+  let x = -1.797693134862316E+308;
+  let y = x * 1.001;
+    console.log(y);  // => prints -Infinity 
 
 //11. primitive data types vs. complex data types 
 //primitive data type 
 //cannot add another data than itself to a primitive data type, you can only re-assign a primitive data type, but you cannot access it in order to add to itself, like an array or object
 
-let myName = “Sophia”; 
-console.log(myName); // => prints “Sophia” 
+  let myName = “Sophia”; 
+    console.log(myName); // => prints “Sophia” 
 
 
 //adding data to complex data type 
-let mySelf = {firstName: "Sophia", middleName: "Rose", lastName: 
-"Ly", DOB: "02/03/1999" };
+let mySelf = {firstName: "Sophia", middleName: "Rose", lastName: "Ly", DOB: "02/03/1999" };
 
 //adding an array to mySelf because it is able to, due to being able to store other types of values than itself
-let myCousins = ["Kelly", "Anthony", "Kenneth", "Kevin", "Jessica"];
-mySelf.cousins = myCousins; 
-console.log(mySelf);  /* => prints  {
+  let myCousins = ["Kelly", "Anthony", "Kenneth", "Kevin", "Jessica"];
+    mySelf.cousins = myCousins; 
+    console.log(mySelf);  /* => prints  {
   firstName: 'Sophia',
   middleName: 'Rose',
   lastName: 'Ly',
@@ -178,20 +177,20 @@ console.log(mySelf);  /* => prints  {
 // 12. copy by value vs. copy by reference // 
 //copy by value 
 //Showing that the variable incorrectName now prints the correct name because it was copied by the original value 
-let correctName = "Sophia"; 
-let incorrectName = "Sophie";
-incorrectName = correctName; 
-console.log(correctName); // still prints "Sophia" and is unchanged
-console.log(incorrectName); //  prints "Sophia" because it was copied by value 
+  let correctName = "Sophia"; 
+  let incorrectName = "Sophie";
+  incorrectName = correctName; 
+    console.log(correctName); // still prints "Sophia" and is unchanged
+    console.log(incorrectName); //  prints "Sophia" because it was copied by value 
 
 //copy by reference
 //Showing that the variabel 
-let newObject = {firstName: "Sophia", lastName: "Ly", faveFood: "sushi"};
+  let newObject = {firstName: "Sophia", lastName: "Ly", faveFood: "sushi"};
 
-let myObject; 
-myObject = newObject; 
-console.log(newObject); 
-console.log(myObject); // showing that myObject and newObject both point to the SAME object, not a copy of the value 
+  let myObject; 
+  myObject = newObject; 
+    console.log(newObject); 
+    console.log(myObject); // showing that myObject and newObject both point to the SAME object, not a copy of the value 
 /*
 prints to the console 
 { firstName: 'Sophia', lastName: 'Ly', faveFood: 'sushi' } // from console.log(newObject); 
@@ -199,9 +198,9 @@ prints to the console
 */ 
 
 //adding to show that when a property is changed, both variables point to the same object with the new property faveColor
-newObject.faveColor = "pink";
-console.log(newObject);
-console.log(myObject); 
+  newObject.faveColor = "pink";
+    console.log(newObject);
+    console.log(myObject); 
 /*
 prints to the console 
 {

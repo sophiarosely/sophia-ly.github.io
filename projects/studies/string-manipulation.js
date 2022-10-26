@@ -18,20 +18,20 @@
 //Lets you join two strings together. You must have one string on the left and one string on the right of the assignment operator (+). Here, we are joining two strings, which results in one final string. 
 
 //two joined strings using the assignment operator 
-var stringOne = "My name is ";
-var stringTwo = "Sophia.";
-var finalString = stringOne + stringTwo; 
-console.log(finalString); // => prints “My name is Sophia.” 
+  var stringOne = "My name is ";
+  var stringTwo = "Sophia.";
+  var finalString = stringOne + stringTwo; 
+   console.log(finalString); // => prints “My name is Sophia.” 
 
 // 2. string methods // 
 //Using string methods to manipulate a string, such as adding or removing elements, finding indexes of particular characters in a string, or converting a string or character to uppercase or lowercase. 
 
 //.concat ()
 //First string is in front of .concat() and the second string is inserted between the parentheses. 
-var string = "The weather is ";
-var strings= "really nice today!";
-var finalStrings = stringOne.concat(stringTwo); 
-console.log(finalStrings); // => prints "The weather is really nice today!" 
+  var string = "The weather is ";
+  var strings= "really nice today!";
+  var finalStrings = stringOne.concat(stringTwo); 
+    console.log(finalStrings); // => prints "The weather is really nice today!" 
 
 //.indexof() 
 //Finding the index of a word in the string of stringOne. Note that it will return -1, if the string is not found in the string 

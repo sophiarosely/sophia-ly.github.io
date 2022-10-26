@@ -27,9 +27,9 @@
  * 
  */
     var myName; => 
-    console.log(myName); // prints => undefined;
+      console.log(myName); // prints => undefined;
     myName = "Sophia"; 
-    console.log(myName); // => prints "Sophia"
+      console.log(myName); // => prints "Sophia"
 /*
  * 
  * // 2. var, let, const //
@@ -39,24 +39,24 @@
  *  block scoped (cannot be accessed outside of code block).
  * */
 //re-declaring var ✅
-var faveCharacter = "Hello Kitty";
-var faveCharacter;
-console.log(faveCharacter); // => prints "Hello Kitty"
+  var faveCharacter = "Hello Kitty";
+  var faveCharacter;
+    console.log(faveCharacter); // => prints "Hello Kitty"
 
 //re-assigning var ✅
-var faveCharacter = “Hello Kitty”; 
-faveCharacter = “My Melody”;
-console.log(faveCharacter) = “My Melody”; // => prints “My Melody” 
+  var faveCharacter = “Hello Kitty”; 
+  faveCharacter = “My Melody”;
+    console.log(faveCharacter) = “My Melody”; // => prints “My Melody” 
 
 //re-declaring let ❌
-let faveCharacter = "Hello Kitty";
-let faveCharacter;
-console.log(faveCharacter); // => prints SyntaxError: Identifier "faveCharacter has already been taken"
+  let faveCharacter = "Hello Kitty";
+  let faveCharacter;
+    console.log(faveCharacter); // => prints SyntaxError: Identifier "faveCharacter has already been taken"
 
 //re-assigning let ✅
-let faveCharacter = "Hello Kitty";
-faveCharacter = “Cinnamonroll”; 
-console.log(faveCharacter); // => prints “Cinnamonroll”
+  let faveCharacter = "Hello Kitty";
+  faveCharacter = “Cinnamonroll”; 
+    console.log(faveCharacter); // => prints “Cinnamonroll”
 
 //re-assigning or re-declaring const ❌
 const faveCharacter = “Hello Kitty” 
@@ -65,42 +65,42 @@ const faveCharacter; // => prints SyntaxError: Identifier “faveCharacter” ha
 faveCharacter = “Kuromi”; // prints TypeError: assignment to constant variable 
 
 //function-scoping with var 
-function newCar() {
-var carName = "BMW";
-  return carName;
-}
-console.log(carName);// => prints Reference Error: car name is not defined at Object
+  function newCar() {
+  var carName = "BMW";
+    return carName;
+  }
+  console.log(carName);// => prints Reference Error: car name is not defined at Object
 
 
 // <= block-scoped with let and const (compare-contrast) =>
 
 //using var in code block
-var flower = "roses"
- {var flower2 = "hydrangeas";
-var flower3 = "tulips";
-}
-console.log(flower); // => prints “roses”
-console.log(flower2); // => prints “hydrangeas”
-console.log(flower3); =/> prints “tulips”
+  var flower = "roses"
+  {var flower2 = "hydrangeas";
+  var flower3 = "tulips";
+  }
+    console.log(flower); // => prints “roses”
+    console.log(flower2); // => prints “hydrangeas”
+    console.log(flower3); =/> prints “tulips”
 
 //using let in code block 
-var flower = "roses";
-{var flower2 = "hydrangeas";
-let flower3 = "tulips";
-}
-console.log(flower); // => prints “roses”
-console.log(flower2); // => prints “hydrangeas”
-console.log(flower3); // =>  prints ReferenceError: flower 3, is not defined at object 
+    var flower = "roses";
+    {var flower2 = "hydrangeas";
+    let flower3 = "tulips";
+    }
+      console.log(flower); // => prints “roses”
+      console.log(flower2); // => prints “hydrangeas”
+      console.log(flower3); // =>  prints ReferenceError: flower 3, is not defined at object 
 
 
 //using const in code block 
-var flower = “roses”
-{var flower2 = “hydrangeas”;
-const flower3 = “tulips”;
-}
-console.log(flower); // => prints “roses”
-console.log(flower2); // => prints “hydrangeas”
-console.log(flower3); // =>  prints ReferenceError: flower 3, is not defined at object 
+    var flower = “roses”
+    {var flower2 = “hydrangeas”;
+    const flower3 = “tulips”;
+    }
+        console.log(flower); // => prints “roses”
+        console.log(flower2); // => prints “hydrangeas”
+        console.log(flower3); // =>  prints ReferenceError: flower 3, is not defined at object 
 
 
 
@@ -121,24 +121,24 @@ console.log(flower3); // =>  prints ReferenceError: flower 3, is not defined at 
  */
 
 //Variable declaration 
-console.log(faveFlower); // prints => undefined
-var faveFlower = "roses";
+  console.log(faveFlower); // prints => undefined
+    var faveFlower = "roses";
 
 //Function declaration 
 var sanrioArray = ["Hello Kitty", "My Melody"];
 
-console.log(addCharacter("Kerropi"));
+  console.log(addCharacter("Kerropi"));
 
-function addCharacter (character) {
-sanrioArray.push(character);
-  return sanrioArray;
-}
+    function addCharacter (character) {
+    sanrioArray.push(character);
+      return sanrioArray;
+    }
 //hoisting let and const 
-console.log(myName); // => prints “Cannot access before being initialized at object”
-console.log(myDog); // => prints ““Cannot access before being initialized at object””
-console.log(artist); // => undefined
+  console.log(myName); // => prints “Cannot access before being initialized at object”
+  console.log(myDog); // => prints ““Cannot access before being initialized at object””
+  console.log(artist); // => undefined
 
-var artist = "Xavier Wulf";
-let myName = "Sophia";
-const myDog = "Iro";
+  var artist = "Xavier Wulf";
+  let myName = "Sophia";
+  const myDog = "Iro";
 

@@ -39,7 +39,7 @@ var color = “pink”;
  var color = “green";
     if (color === “pink”) {
         console.log(“That's my favorite color! I love pink!”);
-    }else if (color == “green”) {
+    } else if (color == “green”) {
         console.log(“That's my second favorite color..'”);
 } 
 // => prints "That's my second favorite color.."
@@ -49,9 +49,9 @@ var color = “pink”;
 var color = “pink”;
     if (color === “pink”) {
         console.log(“That's my favorite color! I love pink!”);
-    }else if (color == “green”) {
+    } else if (color == “green”) {
         console.log(“That's my second favorite color..”)
-    }else {
+    } else {
     console.log("That's not my favorite color.")
 }
 // => prints "That's not my favorite color"

@@ -24,9 +24,8 @@ var sum = function(array, total = 0) {
   if (array.length === 0) {
       return total;
   //otherwise, the array will undergo recursion until base case is met 
-    } else {
-    return sum(array.slice(1), total + array[0]);
-          }
+    } 
+    return sum(array.slice(1), total + array[0]);        
 
 };
 
